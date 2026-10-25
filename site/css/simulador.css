@@ -1,0 +1,625 @@
+/* Simulador de correlativas: el layout de la hoja 2 de los afiches de ReFADU.
+   Fila violeta (claro) = materia anual · fila naranja = cuatrimestral, como en el afiche.
+   El estado se lee en el círculo (forma), en el texto de la fila y en el ícono, nunca solo por color. */
+
+.sim-ancho {
+  max-width: 86rem;
+}
+
+.sim-elegir {
+  padding-block: 1.75rem 1.25rem;
+}
+.sim-elegir h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+.sim-guardado:empty {
+  display: none;
+}
+.sim-guardado {
+  margin: 1rem 0 0;
+  font-weight: 700;
+}
+
+/* cabecera de la carrera: banda negra con grano violeta y la caja naranja, como el afiche */
+.sim-cabeza {
+  padding-block: 2rem 2.5rem;
+  background: radial-gradient(120% 140% at 85% 0%, var(--violeta-claro) 0%, var(--violeta) 30%, var(--negro) 70%);
+  border-block: 3px solid var(--negro);
+  overflow: hidden;
+}
+.sim-caja {
+  font-size: clamp(1.35rem, 6.2vw, 3.2rem);
+  line-height: 0.95;
+}
+.sim-fuente {
+  margin: 1.1rem 0 0;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------ panel de avance */
+
+.sim-panel {
+  display: grid;
+  gap: 1rem;
+  padding-block: 1.5rem 0.5rem;
+}
+@media (min-width: 60rem) {
+  .sim-panel {
+    grid-template-columns: 1.3fr 1fr;
+    align-items: start;
+  }
+  .sim-herramientas {
+    grid-column: 1 / -1;
+  }
+}
+.sim-avance {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+  padding: 1.1rem 1.25rem 1.2rem;
+  border-radius: 1.4rem;
+}
+.sim-pct {
+  margin: 0;
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  font-size: clamp(2.2rem, 10vw, 3.4rem);
+  line-height: 1;
+  color: var(--naranja);
+}
+.sim-pct-texto {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.sim-barra {
+  height: 0.9rem;
+  border: 2px solid var(--beige);
+  border-radius: var(--redondeo);
+  overflow: hidden;
+}
+.sim-barra span {
+  display: block;
+  height: 100%;
+  background: var(--naranja);
+}
+.sim-cuentas {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  font-size: 1.05rem;
+}
+.sim-cuentas li,
+.sim-leyenda li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.sim-cuentas svg,
+.sim-leyenda svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  flex-shrink: 0;
+}
+@media (max-width: 30rem) {
+  .sim-avance {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sim-leyenda {
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  padding: 0.25rem 1.1rem;
+}
+.sim-leyenda summary {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 0;
+}
+.sim-leyenda p {
+  margin: 0 0 0.6rem;
+}
+.sim-leyenda ul {
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+.sim-leyenda .icono {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.muestra {
+  display: inline-block;
+  width: 1.6rem;
+  height: 0.9rem;
+  border-radius: var(--redondeo);
+  border: 2px solid var(--negro);
+}
+.muestra.anual {
+  background: var(--violeta-claro);
+}
+.muestra.cuatri {
+  background: var(--naranja);
+}
+
+.sim-herramientas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ------------------------------------------------------------ el afiche */
+
+.afiche {
+  padding-block: 1.75rem 1rem;
+}
+@media (min-width: 84rem) {
+  .afiche {
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+}
+.sim-bloque {
+  break-inside: avoid;
+  margin-bottom: 2.25rem;
+}
+.sim-bloque .bloque-titulo {
+  margin-bottom: 0.5rem;
+}
+.sim-nota {
+  margin: 0 0 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* columnas de la fila: nombre | finales | TP | final | círculo */
+.materia-fila,
+.sim-columnas {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+.sim-columnas {
+  display: none;
+}
+@media (min-width: 40rem) {
+  .materia-fila,
+  .sim-columnas {
+    grid-template-columns: minmax(0, 1fr) 7.5rem 6.25rem 6rem 2.9rem;
+  }
+  .sim-columnas {
+    display: grid;
+    padding-bottom: 0.25rem;
+  }
+}
+.sim-columnas span {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  line-height: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.15rem;
+}
+.sim-columnas small {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+.sim-columnas .col-cursar {
+  align-items: center;
+  /* "Para cursar" abarca Finales y TP */
+  margin-right: -6.25rem;
+  position: relative;
+}
+.sim-columnas .col-cursar small {
+  margin-right: 6.25rem;
+}
+.sim-columnas .col-tp {
+  justify-content: flex-end;
+}
+
+.sim-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.materia {
+  border-radius: 1.35rem;
+  border: 2px solid var(--negro);
+}
+.materia.cuatri {
+  background: var(--naranja);
+  color: var(--negro);
+  --borde-celda: var(--negro);
+}
+.materia.anual {
+  background: var(--violeta-claro);
+  color: var(--beige);
+  --borde-celda: var(--beige);
+}
+
+.materia-nombre {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.9rem;
+  padding: 0.4rem 0.5rem 0.35rem 1rem;
+  background: none;
+  border: 0;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  border-radius: 1.35rem 0 0 1.35rem;
+}
+.materia-nombre .icono {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex-shrink: 0;
+}
+.materia-texto {
+  display: grid;
+  gap: 0.05rem;
+}
+.materia-titulo {
+  font-family: var(--texto);
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.materia-titulo .codigo {
+  font-weight: 700;
+}
+.materia-estado {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* bloqueada: rayado en el borde izquierdo + candado */
+.materia.bloqueada .materia-nombre {
+  background: repeating-linear-gradient(135deg, var(--borde-celda) 0 2px, transparent 2px 8px) left / 0.55rem 100% no-repeat;
+  padding-left: 1.3rem;
+}
+/* aprobada: el nombre se marca con la estrella de la marca */
+.materia.aprobada .materia-titulo::after {
+  content: "";
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.35em;
+  background: currentColor;
+  clip-path: var(--estrella);
+}
+
+.celda {
+  display: none;
+}
+@media (min-width: 40rem) {
+  .celda {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 0.2rem;
+    align-self: stretch;
+    padding: 0.3rem 0.25rem;
+    border-left: 2px solid var(--borde-celda);
+  }
+  .celda-rotulo {
+    display: none;
+  }
+}
+
+.req {
+  display: inline-block;
+  padding: 0.12rem 0.35rem 0.05rem;
+  border-radius: 0.4rem;
+  font: 700 0.85rem/1.1 var(--texto);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.req.ok {
+  background: var(--beige);
+  color: var(--negro);
+  border: 1.5px solid var(--negro);
+}
+.req.ok::before {
+  content: "✓ ";
+}
+.req.falta {
+  border: 1.5px dashed currentColor;
+}
+.req.promo {
+  background: var(--negro);
+  color: var(--beige);
+  font-size: 0.72rem;
+}
+.req.nada {
+  opacity: 0.6;
+}
+.sim-leyenda .req.ok,
+.sim-leyenda .req.falta {
+  color: var(--negro);
+}
+
+/* el círculo del afiche: solo muestra el estado (se marca con la botonera de abajo) */
+.casillero {
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+}
+.casillero svg {
+  width: 2rem;
+  height: 2rem;
+}
+.materia.anual :focus-visible {
+  outline-color: var(--beige);
+}
+
+/* debajo del nombre: lo que falta (si está bloqueada) y la botonera con todas las opciones a la vista */
+.materia-pie {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem 0.6rem 1rem;
+}
+.materia.bloqueada .materia-pie {
+  padding-left: 1.3rem;
+}
+.materia-falta {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.estados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.estado-opcion {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 1.85rem;
+  padding: 0.2rem 0.65rem 0.12rem 0.3rem;
+  border: 1.5px solid var(--borde-celda);
+  border-radius: var(--redondeo);
+  background: transparent;
+  color: inherit;
+  font: 700 0.82rem/1 var(--texto);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.estado-opcion svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+}
+.estado-opcion:hover:not(:disabled) {
+  background: var(--beige);
+  color: var(--negro);
+  border-color: var(--negro);
+}
+.estado-opcion[aria-pressed="true"],
+.estado-opcion[aria-pressed="true"]:hover {
+  background: var(--negro);
+  color: var(--beige);
+  border-color: var(--negro);
+}
+.estado-opcion:disabled {
+  border-style: dashed;
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* en el celu: los requisitos se leen en "Te falta" y en el detalle; la botonera ocupa todo el ancho */
+@media (max-width: 39.99rem) {
+  .materia-nombre {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .casillero {
+    grid-column: 2;
+    grid-row: 1;
+    margin-right: 0.2rem;
+  }
+  .estados {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .estados-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .estado-opcion {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.15rem;
+    padding: 0.3rem 0.15rem 0.22rem;
+    border-radius: 0.8rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* detalle de la materia */
+.materia-detalle {
+  margin: 0 0.6rem 0.6rem;
+  padding: 0.9rem 1rem 1rem;
+  border-radius: 1rem;
+  background: var(--beige);
+  color: var(--negro);
+  border: 2px solid var(--negro);
+}
+.materia-detalle h4 {
+  margin: 0.75rem 0 0.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+.materia-detalle p {
+  margin: 0;
+}
+.detalle-datos {
+  font-weight: 700;
+}
+.detalle-nota {
+  margin-top: 0.5rem !important;
+}
+.detalle-reqs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.2rem;
+}
+.detalle-reqs li {
+  display: flex;
+  gap: 0.45rem;
+  align-items: baseline;
+}
+.detalle-reqs .marca {
+  font-weight: 700;
+  width: 1rem;
+  flex-shrink: 0;
+}
+.detalle-reqs .ok .marca {
+  color: var(--violeta);
+}
+.detalle-reqs .falta {
+  font-weight: 700;
+}
+.detalle-botones {
+  margin-top: 0.9rem;
+}
+.detalle-botones .chip {
+  min-height: 2.4rem;
+  font-size: 0.95rem;
+}
+.detalle-botones .chip[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.materia-detalle :focus-visible {
+  outline-color: var(--negro);
+}
+
+/* grupos de electivas */
+.sim-grupo {
+  margin-top: 0.8rem;
+  padding: 0.75rem;
+  border: 3px dashed var(--negro);
+  border-radius: 1.6rem;
+}
+.sim-grupo-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0.25rem 0.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+.sim-grupo .contador {
+  flex-shrink: 0;
+  padding: 0.25rem 0.7rem 0.2rem;
+  border-radius: var(--redondeo);
+  background: var(--negro);
+  color: var(--beige);
+  font-size: 0.95rem;
+}
+.sim-grupo.completo {
+  border-style: solid;
+}
+.sim-grupo-cuentas {
+  list-style: none;
+  margin: 0 0.25rem 0.6rem;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+.sim-grupo .sim-nota {
+  margin: 0 0.25rem 0.5rem;
+  text-transform: none;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+.sim-notas {
+  padding: 1.25rem 1.4rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+.sim-notas h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.sim-notas ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.sim-aviso {
+  margin-block: 1rem 0;
+}
+
+.sim-flash {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: 60;
+  transform: translate(-50%, 1rem);
+  opacity: 0;
+  padding: 0.55rem 1.1rem 0.45rem;
+  border-radius: var(--redondeo);
+  background: var(--negro);
+  color: var(--beige);
+  font: 700 1rem/1 var(--texto);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.sim-flash.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

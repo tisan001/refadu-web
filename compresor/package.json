@@ -1,0 +1,22 @@
+{
+  "name": "compresor-laminas",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "comprimir": "node src/motor/cli.ts"
+  },
+  "dependencies": {
+    "client-zip": "2.5.1",
+    "mupdf": "1.28.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1"
+  }
+}

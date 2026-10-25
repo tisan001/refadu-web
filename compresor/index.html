@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Compresor de láminas · ReFADU</title>
+    <meta
+      name="description"
+      content="Comprimí tus láminas y PDF pesados gratis y sin límites. Todo pasa en tu compu: tu archivo no se sube a ningún lado."
+    />
+    <meta name="theme-color" content="#FF6E23" />
+    <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body data-pagina="compresor">
+    <!--#cabecera-->
+    <main id="contenido">
+      <section class="portada sobre-oscuro con-grano">
+        <div class="contenedor portada-fila">
+          <div class="portada-titulo">
+            <h1 class="caja">Compresor</h1>
+            <p class="bajada">Achicá tus láminas en PDF para subirlas al campus, mandarlas por mail o plotearlas. Gratis y sin límites de tamaño ni de cantidad.</p>
+            <p class="sello">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M7 10V7a5 5 0 0 1 10 0v3h1.5v12h-13V10H7Zm2.5 0h5V7a2.5 2.5 0 0 0-5 0v3Z" />
+              </svg>
+              <span><strong>Tu archivo no se sube a ningún lado.</strong> Se comprime acá, en tu compu o tu celu, y nunca sale de tu dispositivo.</span>
+            </p>
+          </div>
+          <img class="portada-ilus" src="/assets/ilustraciones/ilus-9.webp" alt="" width="260" height="260" />
+        </div>
+      </section>
+      <div class="franja" aria-hidden="true"></div>
+
+      <div class="contenedor compresor">
+        <section class="paso" aria-labelledby="titulo-preset">
+          <h2 class="bloque-titulo" id="titulo-preset"><span class="estrella" aria-hidden="true"></span>¿Para qué?</h2>
+          <div class="presets" id="presets" role="radiogroup" aria-labelledby="titulo-preset"></div>
+        </section>
+
+        <section class="paso" aria-labelledby="titulo-archivos">
+          <h2 class="bloque-titulo" id="titulo-archivos"><span class="estrella" aria-hidden="true"></span>Tus PDF</h2>
+          <label class="zona" id="zona">
+            <input class="oculto" type="file" id="entrada" accept="application/pdf,.pdf" multiple />
+            <img class="zona-ilus" src="/assets/ilustraciones/ilus-39.webp" alt="" width="120" height="120" />
+            <span class="zona-titulo" data-normal="Soltá tus PDF acá" data-arrastrando="¡Soltalos!">Soltá tus PDF acá</span>
+            <span class="zona-sub">o tocá para elegirlos · podés poner varios juntos</span>
+            <span class="zona-privado">Se quedan en tu dispositivo: no se suben a ningún servidor.</span>
+          </label>
+          <ul class="lista" id="lista" aria-live="polite"></ul>
+          <div class="acciones" id="acciones" hidden>
+            <button type="button" class="boton naranja" id="zip">Descargar todo (.zip)</button>
+            <button type="button" class="boton vacio" id="limpiar">Empezar de nuevo</button>
+          </div>
+        </section>
+
+        <section class="paso como" aria-labelledby="titulo-como">
+          <h2 class="bloque-titulo" id="titulo-como"><span class="estrella" aria-hidden="true"></span>Cómo funciona</h2>
+          <ul class="como-lista">
+            <li><strong>Todo pasa en tu navegador.</strong> El PDF no viaja por internet: por eso no hay límites y no necesitás crear una cuenta.</li>
+            <li><strong>Solo achica las imágenes.</strong> Los planos, las líneas y el texto quedan igual: no se rasterizan.</li>
+            <li><strong>Saca lo que sobra.</strong> Los PDF de Illustrator guardan una copia oculta del .ai: se la sacamos y muchas veces el peso baja a la mitad.</li>
+            <li><strong>Nunca te lo empeora.</strong> Si no logra achicarlo, te devuelve el original tal cual.</li>
+          </ul>
+        </section>
+
+        <p class="licencia">
+          Código abierto bajo licencia AGPL-3.0: <a href="https://github.com/tisan001/refadu-web" rel="noopener">mirá el código</a>.
+          Funciona con <a href="https://mupdf.com" rel="noopener">MuPDF</a>, de Artifex.
+        </p>
+      </div>
+    </main>
+    <!--#pie-->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

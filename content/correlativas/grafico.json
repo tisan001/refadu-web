@@ -1,0 +1,123 @@
+{
+  "_ayuda": "Correlativas de Diseño Gráfico. Cómo editar este archivo: content/correlativas/LEEME.md",
+  "carrera": "grafico",
+  "nombre": "Diseño Gráfico",
+  "plan": "DG18",
+  "fuente": "Cuadro de correlatividades oficial FADU, Plan DG18",
+  "notas": [
+    "Morfología 2 y Tipografía 2 se pueden cursar en cualquier orden: una en Segundo año y la otra en Tercero.",
+    "Materias optativas / seminarios: tenés que aprobar 180 hs."
+  ],
+  "bloques": [
+    {
+      "id": "cbc",
+      "titulo": "CBC",
+      "materias": [
+        { "codigo": "ICSE", "nombre": "Intr. al Conocimiento de la Sociedad y el Estado" },
+        { "codigo": "IPC", "nombre": "Intr. al Pensamiento Científico" },
+        { "codigo": "ICP1", "nombre": "Intr. al Conocimiento Proyectual I" },
+        { "codigo": "ICP2", "nombre": "Intr. al Conocimiento Proyectual II" },
+        { "codigo": "MAT", "nombre": "Matemática" },
+        { "codigo": "SEM", "nombre": "Semiología" },
+        { "codigo": "TD", "nombre": "Taller de Dibujo", "anual": true }
+      ]
+    },
+    {
+      "id": "1",
+      "titulo": "Primer año",
+      "nota": "Para cursar y para rendir finales: CBC completo.",
+      "materias": [
+        { "codigo": "DG1", "nombre": "Diseño Gráfico I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "M1", "nombre": "Morfología I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "TIP1", "nombre": "Tipografía I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "C1", "nombre": "Comunicación I", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "H1", "nombre": "Historia I", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "TEC1", "nombre": "Tecnología I", "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        {
+          "grupo": "Electiva I",
+          "elegir": 1,
+          "nota": "Elegís Fotografía o Ilustración.",
+          "materias": [
+            { "codigo": "FOT", "nombre": "Fotografía", "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+            { "codigo": "ILUS", "nombre": "Ilustración", "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Segundo año",
+      "materias": [
+        { "codigo": "DG2", "nombre": "Diseño Gráfico II", "anual": true, "promocion": true, "finalesParaCursar": ["DG1", "M1", "TIP1"] },
+        { "codigo": "M2", "nombre": "Morfología II", "anual": true, "promocion": true, "finalesParaCursar": ["M1"], "nota": "Podés cursarla en Segundo o en Tercer año." },
+        { "codigo": "C2", "nombre": "Comunicación II", "cursadasParaCursar": ["C1"], "finalesParaRendir": ["C1"] },
+        { "codigo": "H2", "nombre": "Historia II", "cursadasParaCursar": ["H1"], "finalesParaRendir": ["H1"] },
+        { "codigo": "ME1", "nombre": "Medios Expresivos I", "promocion": true, "finalesParaCursar": ["FOT|ILUS"] },
+        { "codigo": "TEC2", "nombre": "Tecnología II", "promocion": true, "finalesParaCursar": ["TEC1"] }
+      ]
+    },
+    {
+      "id": "3",
+      "titulo": "Tercer año",
+      "materias": [
+        { "codigo": "DG3", "nombre": "Diseño Gráfico III", "anual": true, "promocion": true, "finalesParaCursar": ["DG2", "M2|TIP2", "C1", "H1", "TEC1", "FOT|ILUS"] },
+        { "codigo": "TIP2", "nombre": "Tipografía II", "anual": true, "promocion": true, "finalesParaCursar": ["M1", "TIP1"], "nota": "Podés cursarla en Segundo o en Tercer año." },
+        { "codigo": "LPP", "nombre": "Legislación y Práctica Profesional", "promocion": true, "finalesParaCursar": ["DG2", "M2|TIP2", "C1", "H1", "TEC1", "FOT|ILUS"], "cursadasParaCursar": ["H2", "C2"] },
+        { "codigo": "ME2", "nombre": "Medios Expresivos II", "promocion": true, "finalesParaCursar": ["ME1"] },
+        {
+          "grupo": "Electiva socio-humanística",
+          "elegir": 1,
+          "nota": "Elegís una. Todas son de promoción directa, menos Estética.",
+          "materias": [
+            { "codigo": "EST", "nombre": "Estética", "finalesParaCursar": ["DG2", "M2|TIP2", "C1", "H1", "TEC1", "FOT|ILUS"], "cursadasParaCursar": ["H2", "C2"], "finalesParaRendir": ["H2", "C2"] },
+            { "codigo": "AED", "nombre": "Aspectos Económicos del Diseño", "promocion": true, "finalesParaCursar": ["DG2", "M2|TIP2", "C1", "H1", "TEC1", "FOT|ILUS"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "TM", "nombre": "Teoría de los Medios", "promocion": true, "finalesParaCursar": ["DG2", "M2|TIP2", "C1", "H1", "TEC1", "FOT|ILUS"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "DEC", "nombre": "Diseño y Estudios Culturales", "promocion": true, "finalesParaCursar": ["DG2", "M2|TIP2", "C1", "H1", "TEC1", "FOT|ILUS"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "EP", "nombre": "Elementos de Psicología", "promocion": true, "finalesParaCursar": ["DG2", "M2|TIP2", "C1", "H1", "TEC1", "FOT|ILUS"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "DEG", "nombre": "Diseño y Estudios de Género", "promocion": true, "finalesParaCursar": ["DG2", "M2|TIP2", "C1", "H1", "TEC1", "FOT|ILUS"], "cursadasParaCursar": ["H2", "C2"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "titulo": "Cuarto año",
+      "materias": [
+        { "codigo": "DG4", "nombre": "Diseño Gráfico IV", "anual": true, "promocion": true, "finalesParaCursar": ["DG3", "M2", "TIP2", "ME1", "TEC2", "H2", "C2"] },
+        {
+          "grupo": "Electivas de formación orientada",
+          "elegir": 2,
+          "nota": "Elegís dos.",
+          "materias": [
+            { "codigo": "ADV", "nombre": "Análisis del Discurso Visual", "promocion": true, "finalesParaCursar": ["DG3", "M2", "TIP2", "ME1", "TEC2"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "DII", "nombre": "Diseño de Identidad Institucional", "promocion": true, "finalesParaCursar": ["DG3", "M2", "TIP2", "ME1", "TEC2"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "GP", "nombre": "Gestión de Proyecto", "promocion": true, "finalesParaCursar": ["DG3", "M2", "TIP2", "ME1", "TEC2"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "DGE", "nombre": "Diseño Gráfico Editorial", "promocion": true, "finalesParaCursar": ["DG3", "M2", "TIP2", "ME1", "TEC2"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "DI", "nombre": "Diseño de la Información", "promocion": true, "finalesParaCursar": ["DG3", "M2", "TIP2", "ME1", "TEC2"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "DID", "nombre": "Diseño de Interfases Digitales", "promocion": true, "finalesParaCursar": ["DG3", "M2", "TIP2", "ME1", "TEC2"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "HEU", "nombre": "Heurística", "promocion": true, "finalesParaCursar": ["DG3", "M2", "TIP2", "ME1", "TEC2"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "TH", "nombre": "Teoría del Hábitat", "promocion": true, "finalesParaCursar": ["DG3", "M2", "TIP2", "ME1", "TEC2"], "cursadasParaCursar": ["H2", "C2"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "optativo",
+      "titulo": "Tramo optativo",
+      "nota": "Las optativas no son lo mismo que las electivas: se cuentan por horas.",
+      "materias": [
+        {
+          "grupo": "Materias optativas / seminarios",
+          "horas": 180,
+          "nota": "Tenés que sumar 180 hs (una cuatrimestral = 60 hs). Cada casillero es una optativa; la Optativa 3 la podés reemplazar por 3 seminarios. Se pueden adelantar desde Tercer año.",
+          "materias": [
+            { "codigo": "DGC", "nombre": "Diseño Gráfico por Computación", "promocion": true, "finalesParaCursar": ["DG1", "M1", "TIP1", "TEC1", "H1", "C1", "FOT|ILUS"], "nota": "Optativa con correlativas propias: se puede cursar desde Segundo año." },
+            { "codigo": "OPT1", "nombre": "Optativa 1", "finalesParaCursar": ["DG2", "M2|TIP2", "TEC2", "ME1"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "OPT2", "nombre": "Optativa 2", "finalesParaCursar": ["DG2", "M2|TIP2", "TEC2", "ME1"], "cursadasParaCursar": ["H2", "C2"] },
+            { "codigo": "OPT3", "nombre": "Optativa 3 (o 3 seminarios)", "finalesParaCursar": ["DG2", "M2|TIP2", "TEC2", "ME1"], "cursadasParaCursar": ["H2", "C2"] }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+/* Páginas de contenido: grupos, recomendaciones, actividades, calendario, becas y apuntes */
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.selector {
+  display: grid;
+  gap: 0.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1rem;
+}
+.selector select,
+.buscador input {
+  font: 700 1.15rem/1.2 var(--texto);
+  color: var(--negro);
+  background: var(--beige);
+  border: 3px solid var(--negro);
+  border-radius: var(--redondeo);
+  padding: 0.55rem 2.5rem 0.45rem 1rem;
+  min-height: 2.9rem;
+  min-width: min(100%, 17rem);
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--negro) 50%), linear-gradient(135deg, var(--negro) 50%, transparent 50%);
+  background-position: calc(100% - 1.25rem) 55%, calc(100% - 0.9rem) 55%;
+  background-size: 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+}
+.buscador input {
+  background-image: none;
+  padding-right: 1rem;
+  font-weight: 300;
+  width: 100%;
+}
+
+.resultado {
+  margin: 0 0 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1rem;
+}
+
+.tarjeta.pasada {
+  border-style: dashed;
+}
+.tarjeta.pasada h3,
+.tarjeta.pasada h2 {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+/* recomendaciones */
+.carrera-elegida {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 60rem) {
+  .carrera-elegida {
+    grid-template-columns: 1fr 20rem;
+    align-items: start;
+  }
+}
+.formulario {
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  background: var(--beige);
+}
+.formulario-cabeza {
+  padding: 1rem 1.25rem;
+  border-bottom: 3px solid var(--negro);
+}
+.formulario-cabeza h2 {
+  font-size: 1.6rem;
+}
+.formulario-cabeza p {
+  margin: 0.35rem 0 0;
+}
+.formulario iframe {
+  display: block;
+  width: 100%;
+  height: 1500px;
+  border: 0;
+  background: var(--beige);
+}
+
+/* el botón al PDF del cuatrimestre: texto largo, que pueda ir en dos líneas */
+.recomendaciones-link {
+  justify-content: space-between;
+  text-align: left;
+  line-height: 1.15;
+  padding-block: 0.8rem 0.7rem;
+}
+
+.lista-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.lista-links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 1rem 0.6rem;
+  border: 2px solid currentColor;
+  border-radius: var(--redondeo);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 1.05rem;
+}
+.lista-links a:hover {
+  background: var(--negro);
+  color: var(--beige);
+  border-color: var(--negro);
+}
+.tarjeta.violeta .lista-links a:hover,
+.tarjeta.oscura .lista-links a:hover {
+  background: var(--beige);
+  color: var(--negro);
+  border-color: var(--beige);
+}
+
+/* calendario */
+.calendario-marco {
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  background: var(--beige);
+}
+.calendario-marco iframe {
+  display: block;
+  width: 100%;
+  height: min(75vh, 44rem);
+  border: 0;
+}
+.fechas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.fechas li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  border: 2px solid var(--negro);
+  border-radius: 1rem;
+}
+.fechas .dia {
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--violeta);
+}
+
+/* becas */
+.requisitos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+}
+.requisitos li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.requisitos li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.65em;
+  height: 0.65em;
+  background: currentColor;
+  clip-path: var(--estrella);
+}
+.plazo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  padding: 0.6rem 0.9rem;
+  border: 2px solid currentColor;
+  border-radius: 1rem;
+}
+.plazo strong {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* apuntes */
+.subir {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.5rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 48rem) {
+  .subir {
+    grid-template-columns: auto 1fr auto;
+  }
+}
+.subir img {
+  width: 5.5rem;
+  height: auto;
+}
+.subir h2 {
+  font-size: 1.7rem;
+}
+.subir p {
+  margin: 0.25rem 0 0;
+}
+
+.desplegables {
+  display: grid;
+  gap: 0.75rem;
+}
+.desplegable {
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  background: var(--beige);
+}
+.desplegable summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.desplegable summary::-webkit-details-marker {
+  display: none;
+}
+.desplegable summary img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+}
+.desplegable summary::after {
+  content: "+";
+  margin-left: auto;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.desplegable[open] summary::after {
+  content: "–";
+}
+.desplegable[open] summary {
+  border-bottom: 3px solid var(--negro);
+  background: var(--naranja);
+  border-radius: 1.1rem 1.1rem 0 0;
+}
+.desplegable-cuerpo {
+  padding: 1rem 1.2rem 1.3rem;
+  display: grid;
+  gap: 1rem;
+}
+.buscador {
+  display: grid;
+  gap: 0.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "refadu-web",
+  "private": true,
+  "type": "module",
+  "description": "Sitio de ReFADU: estático, sin frameworks. El único paso de build es el del compresor.",
+  "scripts": {
+    "dev": "node scripts/servir.mjs",
+    "editor": "node scripts/editor.mjs",
+    "verificar": "node scripts/verificar-contenido.mjs",
+    "build": "node scripts/construir.mjs"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}

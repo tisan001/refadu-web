@@ -1,0 +1,48 @@
+{
+  "_ayuda": "'formularioSubir' es el formulario para que la gente mande material. En cada carrera, 'drive' es la carpeta general y 'materias' tiene una carpeta por materia. Los links son DE EJEMPLO: reemplazalos.",
+  "formularioSubir": "https://forms.gle/EJEMPLO-SUBIR-APUNTES",
+  "carreras": [
+    {
+      "carrera": "arquitectura",
+      "drive": "https://drive.google.com/drive/folders/EJEMPLO-APUNTES-ARQ",
+      "materias": [
+        { "nombre": "Arquitectura I", "link": "https://drive.google.com/drive/folders/EJEMPLO-ARQ-A1" },
+        { "nombre": "Sistemas de Representación Geométrica", "link": "https://drive.google.com/drive/folders/EJEMPLO-ARQ-SRG" },
+        { "nombre": "Matemática II", "link": "https://drive.google.com/drive/folders/EJEMPLO-ARQ-MAT2" }
+      ]
+    },
+    {
+      "carrera": "grafico",
+      "drive": "https://drive.google.com/drive/folders/EJEMPLO-APUNTES-DG",
+      "materias": [
+        { "nombre": "Diseño Gráfico 1", "link": "https://drive.google.com/drive/folders/EJEMPLO-DG-DG1" },
+        { "nombre": "Tipografía 1", "link": "https://drive.google.com/drive/folders/EJEMPLO-DG-TIP1" }
+      ]
+    },
+    {
+      "carrera": "industrial",
+      "drive": "https://drive.google.com/drive/folders/EJEMPLO-APUNTES-DI",
+      "materias": [{ "nombre": "Taller de Diseño Industrial 1", "link": "https://drive.google.com/drive/folders/EJEMPLO-DI-TDI1" }]
+    },
+    {
+      "carrera": "indumentaria",
+      "drive": "https://drive.google.com/drive/folders/EJEMPLO-APUNTES-IND",
+      "materias": [{ "nombre": "Introducción al Proyecto", "link": "https://drive.google.com/drive/folders/EJEMPLO-IND-IP" }]
+    },
+    {
+      "carrera": "textil",
+      "drive": "https://drive.google.com/drive/folders/EJEMPLO-APUNTES-TEX",
+      "materias": [{ "nombre": "Fundamentos Geométricos del Textil", "link": "https://drive.google.com/drive/folders/EJEMPLO-TEX-FGDT" }]
+    },
+    {
+      "carrera": "imagen-y-sonido",
+      "drive": "https://drive.google.com/drive/folders/EJEMPLO-APUNTES-DIS",
+      "materias": [{ "nombre": "Proyecto Audiovisual 1", "link": "https://drive.google.com/drive/folders/EJEMPLO-DIS-PAV1" }]
+    },
+    {
+      "carrera": "paisaje",
+      "drive": "https://drive.google.com/drive/folders/EJEMPLO-APUNTES-PAI",
+      "materias": [{ "nombre": "Botánica General", "link": "https://drive.google.com/drive/folders/EJEMPLO-PAI-BG" }]
+    }
+  ]
+}

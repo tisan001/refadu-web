@@ -1,0 +1,29 @@
+{
+  "_ayuda": "Una tarjeta por beca. 'fechaLimite' va como AAAA-MM-DD (dejala vacía si es todo el año). 'requisitos' es una lista de textos cortos. TODO ESTO ES DE EJEMPLO: verificá cada dato antes de publicarlo.",
+  "becas": [
+    {
+      "nombre": "Beca de ejemplo para materiales",
+      "organismo": "Organismo de ejemplo",
+      "descripcion": "Ayuda económica para comprar materiales de cursada.",
+      "requisitos": ["Ser estudiante regular de FADU", "Tener al menos 2 materias aprobadas en el último año", "Completar el formulario socioeconómico"],
+      "fechaLimite": "2026-11-30",
+      "link": "https://www.ejemplo.com/EJEMPLO-BECA-MATERIALES"
+    },
+    {
+      "nombre": "Beca de ejemplo de transporte",
+      "organismo": "Organismo de ejemplo",
+      "descripcion": "Para cubrir parte del viaje a Ciudad Universitaria.",
+      "requisitos": ["Ser estudiante de CBC o de grado", "Vivir a más de 10 km de la facultad"],
+      "fechaLimite": "2026-12-15",
+      "link": "https://www.ejemplo.com/EJEMPLO-BECA-TRANSPORTE"
+    },
+    {
+      "nombre": "Beca de ejemplo de apuntes",
+      "organismo": "Organismo de ejemplo",
+      "descripcion": "Crédito para imprimir y plotear.",
+      "requisitos": ["Ser estudiante regular"],
+      "fechaLimite": "",
+      "link": "https://www.ejemplo.com/EJEMPLO-BECA-APUNTES"
+    }
+  ]
+}

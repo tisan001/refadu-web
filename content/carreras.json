@@ -1,0 +1,12 @@
+{
+  "_ayuda": "Las 7 carreras. El 'id' es el que usan los demás archivos de content/ para decir a qué carrera pertenece algo. No lo cambies sin cambiarlo en todos lados.",
+  "carreras": [
+    { "id": "arquitectura", "nombre": "Arquitectura", "ilustracion": "ilus-38" },
+    { "id": "grafico", "nombre": "Diseño Gráfico", "ilustracion": "ilus-63" },
+    { "id": "industrial", "nombre": "Diseño Industrial", "ilustracion": "ilus-11" },
+    { "id": "indumentaria", "nombre": "Diseño de Indumentaria", "ilustracion": "ilus-28" },
+    { "id": "textil", "nombre": "Diseño Textil", "ilustracion": "ilus-53" },
+    { "id": "imagen-y-sonido", "nombre": "Diseño de Imagen y Sonido", "ilustracion": "ilus-30" },
+    { "id": "paisaje", "nombre": "Lic. en Planificación y Diseño del Paisaje", "corto": "Paisaje", "ilustracion": "ilus-13" }
+  ]
+}

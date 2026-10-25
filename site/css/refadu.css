@@ -1,0 +1,752 @@
+/* ReFADU · estilos compartidos por todo el sitio (también el simulador y el compresor).
+   Colores y tipografías: manual de marca. Solo se usan los 5 colores de la paleta. */
+
+/* ------------------------------------------------------------ tipografías */
+
+@font-face {
+  font-family: "Climate Crisis";
+  src: url("/assets/fuentes/ClimateCrisis.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Condensed";
+  src: url("/assets/fuentes/DINCondensed-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DIN Condensed";
+  src: url("/assets/fuentes/DINCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lemon";
+  src: url("/assets/fuentes/Lemon-Regular.ttf") format("truetype"); /* la Wide no se lee bien en tamaños chicos */
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------ marca */
+
+:root {
+  --naranja: #ff6e23;
+  --beige: #e7ded3;
+  --violeta: #5b2757;
+  --violeta-claro: #70569a;
+  --negro: #231f20;
+
+  --titulo: "Climate Crisis", "DIN Condensed", sans-serif;
+  --texto: "DIN Condensed", "Arial Narrow", sans-serif;
+  --detalle: "Lemon", "Climate Crisis", sans-serif;
+
+  --ancho: 72rem;
+  --margen: clamp(1rem, 4vw, 2.5rem);
+  --redondeo: 999px;
+}
+
+/* ------------------------------------------------------------ base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--beige);
+  color: var(--negro);
+  font-family: var(--texto);
+  font-weight: 300;
+  font-size: 1.25rem; /* DIN Condensed Light es angosta: necesita cuerpo */
+  line-height: 1.35;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1;
+}
+
+/* Climate Crisis: solo títulos de pocas palabras */
+.titulo,
+h1 {
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+/* DIN Condensed Bold: subtítulos y datos destacados */
+.subtitulo,
+h2,
+h3 {
+  font-family: var(--texto);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--negro);
+  outline-offset: 3px;
+}
+.sobre-oscuro :focus-visible,
+.sobre-violeta :focus-visible {
+  outline-color: var(--beige);
+}
+
+.saltar {
+  position: absolute;
+  left: 1rem;
+  top: -10rem;
+  z-index: 100;
+  background: var(--negro);
+  color: var(--beige);
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  border-radius: var(--redondeo);
+}
+.saltar:focus {
+  top: 1rem;
+}
+
+.solo-lectores {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho);
+  margin-inline: auto;
+  padding-inline: var(--margen);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ------------------------------------------------------------ fondos de color */
+
+.sobre-naranja {
+  background: var(--naranja);
+  color: var(--negro);
+}
+.sobre-violeta {
+  background: var(--violeta);
+  color: var(--beige);
+}
+.sobre-oscuro {
+  background: var(--negro);
+  color: var(--beige);
+}
+.sobre-beige {
+  background: var(--beige);
+  color: var(--negro);
+}
+
+/* grano de las piezas de la marca */
+.con-grano {
+  position: relative;
+  isolation: isolate;
+}
+.con-grano::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/assets/fondos/noise.webp") center / 540px auto;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------ cabecera */
+
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--beige);
+  border-bottom: 3px solid var(--negro);
+}
+.cabecera-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4rem;
+}
+.cabecera-logo {
+  /* el manual pide aire alrededor del logo: medio alto de la R */
+  padding-block: 0.75rem;
+  flex-shrink: 0;
+}
+.cabecera-logo img {
+  height: 1.6rem; /* el mínimo digital del manual es 14 px */
+  width: auto;
+}
+
+.menu-boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid var(--negro);
+  background: var(--negro);
+  color: var(--beige);
+  font: 700 1.1rem/1 var(--texto);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.55rem 1rem 0.45rem;
+  border-radius: var(--redondeo);
+  cursor: pointer;
+}
+.menu-boton svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.menu {
+  display: none;
+}
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* menú del celu: pantalla completa violeta */
+.menu.abierto {
+  display: block;
+  position: fixed;
+  inset: 4rem 0 0 0;
+  z-index: 49;
+  overflow-y: auto;
+  background: var(--violeta);
+  padding: 1.5rem var(--margen) 3rem;
+}
+.menu.abierto ul {
+  display: grid;
+  gap: 0.25rem;
+}
+.menu.abierto a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--beige);
+  text-decoration: none;
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  text-transform: uppercase;
+  font-size: clamp(1.3rem, 6.5vw, 2rem);
+  padding: 0.6rem 0;
+  border-bottom: 2px solid var(--violeta-claro);
+}
+.menu.abierto a[aria-current="page"] {
+  color: var(--naranja);
+}
+.menu.abierto a[aria-current="page"]::before {
+  content: "";
+  width: 0.8em;
+  height: 0.8em;
+  flex-shrink: 0;
+  background: var(--naranja);
+  clip-path: var(--estrella);
+}
+
+@media (min-width: 64rem) {
+  .menu-boton {
+    display: none;
+  }
+  .menu,
+  .menu.abierto {
+    display: block;
+    position: static;
+    background: none;
+    padding: 0;
+    overflow: visible;
+  }
+  .menu ul,
+  .menu.abierto ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.15rem 1.1rem;
+  }
+  .menu a,
+  .menu.abierto a {
+    display: block;
+    font: 700 1.05rem/1 var(--texto);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--negro);
+    text-decoration: none;
+    padding: 0.5rem 0 0.35rem;
+    border-bottom: 3px solid transparent;
+  }
+  .menu a:hover,
+  .menu a[aria-current="page"] {
+    border-bottom-color: var(--naranja);
+  }
+  .menu.abierto a[aria-current="page"] {
+    color: var(--negro);
+  }
+  .menu.abierto a[aria-current="page"]::before {
+    display: none;
+  }
+}
+
+body.menu-abierto {
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------ estrella de 4 puntas (✦ de la marca) */
+
+:root {
+  --estrella: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+}
+.estrella {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  background: currentColor;
+  clip-path: var(--estrella);
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------ portada de cada sección */
+
+.portada {
+  padding-block: clamp(2rem, 7vw, 4rem) clamp(2.25rem, 7vw, 4.5rem);
+  overflow: hidden;
+}
+.portada-fila {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+@media (min-width: 48rem) {
+  .portada-fila {
+    grid-template-columns: 1fr auto;
+  }
+}
+.portada .bajada {
+  margin: 1.25rem 0 0;
+  max-width: 34rem;
+  font-size: 1.4rem;
+}
+.portada-ilus {
+  width: clamp(5.5rem, 26vw, 13rem);
+  max-height: 9rem;
+  object-fit: contain;
+  justify-self: end;
+}
+@media (min-width: 48rem) {
+  .portada-ilus {
+    max-height: none;
+  }
+}
+
+/* caja naranja "en volumen" de los afiches: el título va adentro */
+.caja {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  background: var(--naranja);
+  color: var(--violeta);
+  border: 3px solid var(--negro);
+  padding: 0.35em 0.55em 0.3em;
+  margin: 0 0.6rem 0.6rem 0;
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.6rem, 7.5vw, 3.6rem);
+  overflow-wrap: anywhere;
+  hyphens: manual;
+}
+.caja::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(0.6rem, 0.6rem);
+  z-index: -1;
+  background: var(--naranja);
+  border: 3px solid var(--negro);
+}
+/* en el afiche esta línea va en beige, pero beige sobre naranja no llega al contraste mínimo
+   (2,1:1); en texto va en negro. El beige sobre naranja queda solo para el logo, como pide el manual. */
+.caja .linea-alterna {
+  color: var(--negro);
+  display: block;
+}
+.portada .caja {
+  isolation: auto;
+}
+.portada-titulo {
+  position: relative;
+  z-index: 0;
+}
+
+/* ------------------------------------------------------------ títulos de bloque (✦ CBC, ✦ PRIMER AÑO) */
+
+/* violeta y no naranja: naranja sobre beige no llega a 3:1. La estrella sí va en naranja. */
+.bloque-titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--violeta);
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 6vw, 2.4rem);
+  margin: 0 0 1rem;
+}
+.bloque-titulo .estrella {
+  color: var(--naranja);
+}
+.sobre-naranja .bloque-titulo,
+.sobre-naranja .bloque-titulo .estrella {
+  color: var(--violeta);
+}
+.sobre-violeta .bloque-titulo,
+.sobre-oscuro .bloque-titulo {
+  color: var(--naranja);
+}
+.seccion {
+  padding-block: clamp(2rem, 6vw, 3.5rem);
+}
+
+/* ------------------------------------------------------------ botones y chips */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.9rem;
+  padding: 0.6rem 1.3rem 0.5rem;
+  border: 3px solid var(--negro);
+  border-radius: var(--redondeo);
+  background: var(--negro);
+  color: var(--beige);
+  font: 700 1.15rem/1 var(--texto);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.boton:hover {
+  background: var(--violeta);
+  border-color: var(--violeta);
+}
+.boton.naranja {
+  background: var(--naranja);
+  color: var(--negro);
+  border-color: var(--negro);
+}
+.boton.naranja:hover {
+  background: var(--beige);
+}
+.boton.vacio {
+  background: transparent;
+  color: inherit;
+  border-color: currentColor;
+}
+.boton.vacio:hover {
+  background: var(--negro);
+  color: var(--beige);
+  border-color: var(--negro);
+}
+.sobre-oscuro .boton.vacio:hover,
+.sobre-violeta .boton.vacio:hover {
+  background: var(--beige);
+  color: var(--negro);
+  border-color: var(--beige);
+}
+.boton.chico {
+  min-height: 2.3rem;
+  padding: 0.45rem 0.95rem 0.35rem;
+  font-size: 1rem;
+}
+.boton[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.boton .flecha {
+  font-family: var(--texto);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.6rem;
+  padding: 0.45rem 1rem 0.35rem;
+  border: 2px solid var(--negro);
+  border-radius: var(--redondeo);
+  background: transparent;
+  color: var(--negro);
+  font: 700 1.05rem/1 var(--texto);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.chip[aria-pressed="true"],
+.chip[aria-checked="true"],
+.chip.activo {
+  background: var(--negro);
+  color: var(--beige);
+}
+.chip[aria-pressed="true"]::before,
+.chip[aria-checked="true"]::before,
+.chip.activo::before {
+  content: "";
+  width: 0.7em;
+  height: 0.7em;
+  background: var(--naranja);
+  clip-path: var(--estrella);
+}
+
+/* ------------------------------------------------------------ tarjetas (sin grises ni sombras suaves) */
+
+.grilla {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+}
+
+.tarjeta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem 1.25rem 1.4rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  background: var(--beige);
+}
+.tarjeta.naranja {
+  background: var(--naranja);
+}
+.tarjeta.violeta {
+  background: var(--violeta);
+  color: var(--beige);
+  border-color: var(--violeta);
+}
+.tarjeta.oscura {
+  background: var(--negro);
+  color: var(--beige);
+}
+.tarjeta h2,
+.tarjeta h3 {
+  font-size: 1.55rem;
+  line-height: 1.05;
+}
+.tarjeta p {
+  margin: 0;
+}
+.tarjeta .acciones {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tarjeta.violeta .boton,
+.tarjeta.oscura .boton {
+  background: var(--beige);
+  color: var(--negro);
+  border-color: var(--beige);
+}
+.tarjeta.violeta .boton:hover,
+.tarjeta.oscura .boton:hover {
+  background: var(--naranja);
+  border-color: var(--naranja);
+}
+
+/* etiqueta tipo sticker: Lemon, solo para detalles cortos */
+.etiqueta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem 0.28rem;
+  border-radius: var(--redondeo);
+  background: var(--negro);
+  color: var(--beige);
+  font: 400 1rem/1 var(--detalle); /* Lemon Regular es angosta: necesita más cuerpo que la Wide */
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.tarjeta.oscura .etiqueta,
+.tarjeta.violeta .etiqueta {
+  background: var(--naranja);
+  color: var(--negro);
+}
+
+.dato {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.dato svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ------------------------------------------------------------ franjas de patrones de la marca */
+
+.franja {
+  height: 2.75rem;
+  background: var(--negro) url("/assets/ilustraciones/ilus-15.webp") left center / auto 100% repeat-x;
+  border-block: 3px solid var(--negro);
+}
+.franja.rombos {
+  background-image: url("/assets/ilustraciones/ilus-16.webp");
+}
+.franja.zigzag {
+  background-image: url("/assets/ilustraciones/ilus-23.webp");
+}
+
+/* ------------------------------------------------------------ avisos */
+
+.aviso {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem 1.15rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.2rem;
+  background: var(--beige);
+}
+.aviso .estrella {
+  color: var(--naranja);
+  margin-top: 0.15em;
+  width: 1.1em;
+  height: 1.1em;
+}
+.aviso p {
+  margin: 0;
+}
+.aviso.violeta {
+  background: var(--violeta);
+  color: var(--beige);
+  border-color: var(--violeta);
+}
+
+.vacio-estado {
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+/* ------------------------------------------------------------ pie */
+
+.pie {
+  margin-top: 3rem;
+  padding-block: 2.5rem 2rem;
+}
+.pie-fila {
+  display: grid;
+  gap: 1.75rem;
+}
+@media (min-width: 48rem) {
+  .pie-fila {
+    grid-template-columns: auto 1fr;
+    align-items: end;
+  }
+}
+.pie-logo img {
+  height: 2.6rem;
+  width: auto;
+}
+.pie p {
+  margin: 0.75rem 0 0;
+  max-width: 28rem;
+}
+.pie ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  justify-content: flex-start;
+}
+@media (min-width: 48rem) {
+  .pie ul {
+    justify-content: flex-end;
+  }
+}
+.pie a {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1rem;
+}
+.pie .legal {
+  margin-top: 1.75rem;
+  font-size: 1rem;
+  max-width: none;
+}

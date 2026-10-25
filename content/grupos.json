@@ -1,0 +1,16 @@
+{
+  "_ayuda": "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). Los links son DE EJEMPLO: reemplazalos por los reales (empiezan con https://chat.whatsapp.com/).",
+  "grupos": [
+    { "nombre": "Arquitectura · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "arquitectura", "link": "https://chat.whatsapp.com/EJEMPLO-ARQUITECTURA" },
+    { "nombre": "Diseño Gráfico · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "grafico", "link": "https://chat.whatsapp.com/EJEMPLO-GRAFICO" },
+    { "nombre": "Diseño Industrial · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "industrial", "link": "https://chat.whatsapp.com/EJEMPLO-INDUSTRIAL" },
+    { "nombre": "Diseño de Indumentaria · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "indumentaria", "link": "https://chat.whatsapp.com/EJEMPLO-INDUMENTARIA" },
+    { "nombre": "Diseño Textil · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "textil", "link": "https://chat.whatsapp.com/EJEMPLO-TEXTIL" },
+    { "nombre": "Imagen y Sonido · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "imagen-y-sonido", "link": "https://chat.whatsapp.com/EJEMPLO-IMAGEN-Y-SONIDO" },
+    { "nombre": "Paisaje · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "paisaje", "link": "https://chat.whatsapp.com/EJEMPLO-PAISAJE" },
+    { "nombre": "CBC FADU · Ciudad Universitaria", "descripcion": "Para quienes cursan el CBC en Ciudad: horarios, sedes y cómo es la cursada.", "tipo": "cbc", "carrera": "", "link": "https://chat.whatsapp.com/EJEMPLO-CBC-CIUDAD" },
+    { "nombre": "CBC FADU · otras sedes", "descripcion": "Para quienes cursan el CBC en otras sedes.", "tipo": "cbc", "carrera": "", "link": "https://chat.whatsapp.com/EJEMPLO-CBC-SEDES" },
+    { "nombre": "Arquitectura · 1er año", "descripcion": "Ejemplo de grupo por año. Borralo si no existe.", "tipo": "año", "carrera": "arquitectura", "link": "https://chat.whatsapp.com/EJEMPLO-ARQ-1" },
+    { "nombre": "Morfología 1 · Gráfico", "descripcion": "Ejemplo de grupo por materia. Borralo si no existe.", "tipo": "materia", "carrera": "grafico", "link": "https://chat.whatsapp.com/EJEMPLO-DG-MORFO1" }
+  ]
+}

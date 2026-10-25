@@ -1,0 +1,109 @@
+/* Página de inicio */
+
+.inicio-portada {
+  padding-block: clamp(2.5rem, 9vw, 5rem);
+  overflow: hidden;
+}
+.inicio-portada-fila {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+@media (min-width: 48rem) {
+  .inicio-portada-fila {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+.inicio-logo {
+  /* aire del manual alrededor del logo vertical: el asta de la R */
+  width: min(100%, 27rem);
+  height: auto;
+  padding: 0.5rem 0;
+}
+.inicio-bajada {
+  margin: 1.75rem 0 0;
+  max-width: 30rem;
+  font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+  line-height: 1.2;
+}
+.inicio-ilus {
+  width: min(70%, 24rem);
+  height: auto;
+  justify-self: center;
+}
+
+.accesos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16.5rem), 1fr));
+}
+.acceso {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 1rem;
+  row-gap: 0.4rem;
+  align-items: start;
+  padding: 1.1rem 1.2rem 1.25rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  text-decoration: none;
+  transition: transform 0.12s ease;
+}
+.acceso img {
+  grid-row: 1 / 3;
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: contain;
+}
+.acceso-titulo {
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  text-transform: uppercase;
+  font-size: clamp(1.05rem, 4.6vw, 1.35rem);
+  line-height: 1.05;
+  hyphens: manual;
+}
+.acceso-texto {
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+.acceso:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--negro);
+}
+.acceso.violeta {
+  background: var(--violeta);
+  color: var(--beige);
+  border-color: var(--negro);
+}
+.acceso.naranja {
+  background: var(--naranja);
+  color: var(--negro);
+}
+.acceso.oscuro {
+  background: var(--negro);
+  color: var(--beige);
+}
+.acceso.oscuro .acceso-titulo {
+  color: var(--naranja);
+}
+.acceso.beige {
+  background: var(--beige);
+  color: var(--negro);
+}
+.acceso.beige .acceso-titulo {
+  color: var(--violeta);
+}
+.acceso.oscuro:focus-visible,
+.acceso.violeta:focus-visible {
+  outline-color: var(--negro);
+}
+
+.inicio-mas {
+  margin: 1.5rem 0 0;
+}

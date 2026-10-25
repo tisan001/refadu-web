@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simulador de correlativas · ReFADU</title>
+    <meta name="description" content="Marcá las materias que tenés y mirá qué podés cursar y qué finales podés rendir. Las 7 carreras de la FADU." />
+    <meta name="theme-color" content="#FF6E23" />
+    <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/refadu.css" />
+    <link rel="stylesheet" href="/css/simulador.css" />
+  </head>
+  <body data-pagina="correlativas">
+    <!--#cabecera-->
+    <main id="contenido">
+      <section class="portada sobre-violeta con-grano">
+        <div class="contenedor portada-fila">
+          <div class="portada-titulo">
+            <h1 class="caja">Correlativas</h1>
+            <p class="bajada">Marcá cómo tenés cada materia y mirá qué podés cursar el cuatrimestre que viene y qué finales ya podés rendir.</p>
+          </div>
+          <img class="portada-ilus" src="/assets/ilustraciones/ilus-10.webp" alt="" width="260" height="260" />
+        </div>
+      </section>
+
+      <section class="sim-elegir" aria-labelledby="titulo-carrera">
+        <div class="contenedor">
+          <h2 class="subtitulo" id="titulo-carrera">Elegí tu carrera</h2>
+          <div class="chips" id="carreras" role="radiogroup" aria-labelledby="titulo-carrera"></div>
+          <p class="sim-guardado" id="aviso-guardado"></p>
+        </div>
+      </section>
+
+      <div id="simulador" aria-live="off"></div>
+
+      <div class="contenedor">
+        <div class="aviso sim-aviso">
+          <span class="estrella" aria-hidden="true"></span>
+          <p>
+            <strong>Ojo:</strong> esta herramienta es orientativa. Está armada con los cuadros de correlatividades oficiales de FADU, pero puede
+            tener errores o quedar desactualizada si cambia el plan. Antes de inscribirte, verificá siempre con el plan oficial de tu carrera y con
+            Dirección de Alumnos.
+          </p>
+        </div>
+      </div>
+      <p class="solo-lectores" id="anuncio" aria-live="polite"></p>
+      <div class="sim-flash" id="flash" aria-hidden="true">Guardado ✦</div>
+    </main>
+    <!--#pie-->
+    <script src="/js/correlativas-logica.js" defer></script>
+    <script src="/js/simulador.js" defer></script>
+  </body>
+</html>

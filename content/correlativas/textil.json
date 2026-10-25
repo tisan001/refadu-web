@@ -1,0 +1,78 @@
+{
+  "_ayuda": "Correlativas de Diseño Textil. Cómo editar este archivo: content/correlativas/LEEME.md",
+  "carrera": "textil",
+  "nombre": "Diseño Textil",
+  "plan": "TX17",
+  "fuente": "Cuadro de correlatividades oficial FADU, Plan TX17",
+  "notas": [],
+  "bloques": [
+    {
+      "id": "cbc",
+      "titulo": "CBC",
+      "materias": [
+        { "codigo": "ICSE", "nombre": "Intr. al Conocimiento de la Sociedad y el Estado" },
+        { "codigo": "IPC", "nombre": "Intr. al Pensamiento Científico" },
+        { "codigo": "ICP1", "nombre": "Intr. al Conocimiento Proyectual I" },
+        { "codigo": "ICP2", "nombre": "Intr. al Conocimiento Proyectual II" },
+        { "codigo": "MAT", "nombre": "Matemática" },
+        { "codigo": "SEM", "nombre": "Semiología" },
+        { "codigo": "TD", "nombre": "Taller de Dibujo", "anual": true }
+      ]
+    },
+    {
+      "id": "1",
+      "titulo": "Primer año",
+      "nota": "Para cursar y para rendir finales: CBC completo.",
+      "materias": [
+        { "codigo": "ME1", "nombre": "Medios Expresivos I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "FGDT", "nombre": "Fundamentos Geométricos del Textil", "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "IP", "nombre": "Introducción al Proyecto", "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "HDIT1", "nombre": "Historia del Diseño de Indumentaria y Textil I", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "ADIT1", "nombre": "Análisis del Diseño de Indumentaria y Textil I", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "TPIN1", "nombre": "Técnicas de Producción e Industria Nacional I", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "TPIN2", "nombre": "Técnicas de Producción e Industria Nacional II", "finalesParaCursar": ["CBC"], "cursadasParaCursar": ["TPIN1"], "finalesParaRendir": ["TPIN1"] }
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Segundo año",
+      "materias": [
+        { "codigo": "PT1", "nombre": "Proyecto Textil I", "anual": true, "promocion": true, "finalesParaCursar": ["IP", "ME1", "FGDT"], "cursadasParaCursar": ["TPIN1"] },
+        { "codigo": "PTET", "nombre": "Procesos de Teñido, Estampado y Terminación", "anual": true, "promocion": true, "finalesParaCursar": ["IP", "ME1", "FGDT"], "cursadasParaCursar": ["TPIN1"] },
+        { "codigo": "ME2", "nombre": "Medios Expresivos II", "anual": true, "promocion": true, "finalesParaCursar": ["ME1"] },
+        { "codigo": "HDIT2", "nombre": "Historia del Diseño de Indumentaria y Textil II", "cursadasParaCursar": ["HDIT1"], "finalesParaRendir": ["HDIT1"] },
+        { "codigo": "ADIT2", "nombre": "Análisis del Diseño de Indumentaria y Textil II", "cursadasParaCursar": ["ADIT1"], "finalesParaRendir": ["ADIT1"] },
+        { "codigo": "TPT1", "nombre": "Técnicas de Producción Textil I", "finalesParaCursar": ["TPIN1", "IP", "ME1"], "cursadasParaCursar": ["TPIN2"], "finalesParaRendir": ["TPIN2"] },
+        { "codigo": "TPT2", "nombre": "Técnicas de Producción Textil II", "finalesParaCursar": ["TPIN1", "IP", "ME1"], "cursadasParaCursar": ["TPT1", "TPIN2"], "finalesParaRendir": ["TPT1"] }
+      ]
+    },
+    {
+      "id": "3",
+      "titulo": "Tercer año",
+      "materias": [
+        { "codigo": "HT", "nombre": "Historia del Textil", "anual": true, "promocion": true, "cursadasParaCursar": ["HDIT2", "HDIT1"], "finalesParaRendir": ["HDIT2", "HDIT1"] },
+        { "codigo": "PT2", "nombre": "Proyecto Textil II", "anual": true, "promocion": true, "finalesParaCursar": ["PT1", "PTET", "ME2", "ADIT1", "HDIT1", "ME1", "IP", "FGDT"], "cursadasParaCursar": ["TPT1"] },
+        { "codigo": "PT3", "nombre": "Proyecto Textil III", "anual": true, "promocion": true, "finalesParaCursar": ["PT2", "TPT1", "PT1", "PTET", "ME2", "ME1", "ADIT1", "HDIT1"], "cursadasParaCursar": ["TPT2"] },
+        { "codigo": "CC", "nombre": "Comunicación y Crítica", "finalesParaCursar": ["PT1", "ME1", "IP", "FGDT"], "cursadasParaCursar": ["ADIT2", "ADIT1", "TPIN1"], "finalesParaRendir": ["ADIT2", "PT1"] },
+        { "codigo": "SOC", "nombre": "Sociología", "finalesParaCursar": ["IP", "ME1", "TPIN2"], "cursadasParaCursar": ["ADIT1", "HDIT1"], "finalesParaRendir": ["ADIT1", "HDIT1"] },
+        { "codigo": "CYM1", "nombre": "Comercialización y Mercado I", "finalesParaCursar": ["año:1"], "cursadasParaCursar": ["TPT1", "HDIT2"], "finalesParaRendir": ["TPT1", "HDIT2"] },
+        { "codigo": "TPT3", "nombre": "Técnicas de Producción Textil III", "finalesParaCursar": ["año:1"], "cursadasParaCursar": ["TPT2"], "finalesParaRendir": ["TPT2"] },
+        { "codigo": "CYM2", "nombre": "Comercialización y Mercado II", "finalesParaCursar": ["año:1"], "cursadasParaCursar": ["CYM1", "TPT1", "HDIT2"], "finalesParaRendir": ["CYM1", "TPT1", "HDIT2"] },
+        { "codigo": "TPT4", "nombre": "Técnicas de Producción Textil IV", "finalesParaCursar": ["año:1"], "cursadasParaCursar": ["TPT3", "TPT2"], "finalesParaRendir": ["TPT3", "TPT2", "TPT1"] }
+      ]
+    },
+    {
+      "id": "4",
+      "titulo": "Cuarto año",
+      "materias": [
+        { "codigo": "PT4", "nombre": "Proyecto Textil IV", "anual": true, "promocion": true, "finalesParaCursar": ["PT1", "PT2", "PT3", "TPT1", "TPT2"], "cursadasParaCursar": ["TPT3"] },
+        { "codigo": "PA1", "nombre": "Proyecto de Accesorios I", "anual": true, "promocion": true, "finalesParaCursar": ["PT2", "PT1", "PTET", "ME2", "ME1", "ADIT1", "HDIT1"], "cursadasParaCursar": ["TPT1"] },
+        { "codigo": "EP", "nombre": "Ética Profesional", "finalesParaCursar": ["año:1", "HDIT2"], "finalesParaRendir": ["HDIT2"] },
+        { "codigo": "MO1", "nombre": "Optativa I", "finalesParaCursar": ["PT2"] },
+        { "codigo": "MO2", "nombre": "Optativa II", "finalesParaCursar": ["PT2"] },
+        { "codigo": "TFC", "nombre": "Trabajo Final de Carrera", "anual": true, "promocion": true, "finalesParaCursar": ["año:3", "PT4"] },
+        { "codigo": "PPA", "nombre": "Práctica Profesional Asistida", "anual": true, "promocion": true, "finalesParaCursar": ["año:3"] }
+      ]
+    }
+  ]
+}

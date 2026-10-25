@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grupos de WhatsApp · ReFADU</title>
+    <meta name="description" content="Los grupos de WhatsApp de cada carrera de la FADU, del CBC y de cada materia." />
+    <meta name="theme-color" content="#FF6E23" />
+    <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/refadu.css" />
+    <link rel="stylesheet" href="/css/secciones.css" />
+  </head>
+  <body data-pagina="grupos">
+    <!--#cabecera-->
+    <main id="contenido">
+      <section class="portada sobre-violeta con-grano">
+        <div class="contenedor portada-fila">
+          <div class="portada-titulo">
+            <h1 class="caja">Grupos</h1>
+            <p class="bajada">Sumate al grupo de tu carrera, del CBC o de la materia que estás cursando. Ahí se pasan los avisos, las dudas y la data que sirve.</p>
+          </div>
+          <img class="portada-ilus" src="/assets/ilustraciones/ilus-32.webp" alt="" width="260" height="260" />
+        </div>
+      </section>
+      <div class="franja" aria-hidden="true"></div>
+
+      <section class="seccion">
+        <div class="contenedor">
+          <div class="filtros">
+            <fieldset class="chips" id="filtro-tipo">
+              <legend class="solo-lectores">Tipo de grupo</legend>
+            </fieldset>
+            <label class="selector">
+              <span>Carrera</span>
+              <select id="filtro-carrera"><option value="">Todas las carreras</option></select>
+            </label>
+          </div>
+          <p class="resultado" id="resultado" aria-live="polite"></p>
+          <div class="grilla" id="lista"></div>
+        </div>
+      </section>
+    </main>
+    <!--#pie-->
+    <script src="/js/grupos.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+# Editor de contenido de ReFADU (Decap CMS): https://decapcms.org/docs/
+# Edita los archivos de content/ con formularios y guarda cada cambio como un commit en GitHub.
+# Cloudflare Pages (o Netlify) publica solo cada commit, en uno o dos minutos.
+
+backend:
+  name: github
+  repo: tisan001/refadu-web
+  branch: main
+  # Login con GitHub: ver "Editor de contenido" en el README.
+  # TODO: la dirección del Worker de login (login-editor/), cuando esté publicado
+  # base_url: https://refadu-login.<tu-subdominio>.workers.dev
+  commit_messages:
+    update: "Actualizar {{collection}} desde el editor"
+
+# En tu compu: con `npm run editor` el editor guarda directo en content/, sin GitHub.
+local_backend: true
+
+locale: es
+site_url: /
+logo_url: /assets/logos/refadu-horizontal-color.svg
+
+# Hace falta aunque por ahora no se suban imágenes desde el editor.
+media_folder: assets/subidas
+public_folder: /assets/subidas
+
+collections:
+  - name: contenido
+    label: Contenido del sitio
+    editor:
+      preview: false
+    files:
+      # ------------------------------------------------------------ actividades
+      - name: actividades
+        label: Actividades
+        file: content/actividades.json
+        format: json
+        description: Las tarjetas de la página Actividades. Las que ya pasaron se muestran solas al final, como "ya pasó".
+        fields:
+          - { name: _ayuda, widget: hidden, default: "Una tarjeta por actividad. 'fecha' va como AAAA-MM-DD. 'hora' y 'inscripcion' son opcionales. Las que ya pasaron se muestran al final como 'ya pasó'." }
+          - name: actividades
+            label: Actividades
+            label_singular: actividad
+            widget: list
+            summary: "{{fields.fecha}} · {{fields.titulo}}"
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: fecha, label: Fecha, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true }
+              - { name: hora, label: "Hora (por ejemplo 18:00)", widget: string, required: false, pattern: ['^([01]\d|2[0-3]):[0-5]\d$', "Escribila como 18:00"] }
+              - { name: lugar, label: Lugar, widget: string, required: false }
+              - { name: descripcion, label: Descripción, widget: text, required: false }
+              - { name: inscripcion, label: "Link de inscripción (opcional)", widget: string, required: false, pattern: ['^https?://', "Tiene que empezar con https://"] }
+
+      # ------------------------------------------------------------ calendario
+      - name: calendario
+        label: Calendario académico
+        file: content/calendario.json
+        format: json
+        description: El Google Calendar que se muestra en la página y las fechas clave de abajo.
+        fields:
+          - { name: _ayuda, widget: hidden, default: "Pegá en 'calendarioId' el ID del Google Calendar público (Configuración del calendario → Integrar el calendario → ID del calendario; suele terminar en @group.calendar.google.com). El calendario tiene que ser público. Mientras diga EJEMPLO, la página muestra un aviso en lugar del calendario." }
+          - { name: calendarioId, label: "ID del Google Calendar", widget: string, hint: "En Google Calendar: Configuración del calendario → Integrar el calendario → ID del calendario. El calendario tiene que ser público." }
+          - { name: zonaHoraria, widget: hidden, default: America/Argentina/Buenos_Aires }
+          - name: fechasClave
+            label: Fechas clave
+            label_singular: fecha
+            widget: list
+            summary: "{{fields.fecha}} · {{fields.texto}}"
+            fields:
+              - { name: fecha, label: Fecha, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true }
+              - { name: texto, label: Qué pasa ese día, widget: string }
+
+      # ------------------------------------------------------------ grupos
+      - name: grupos
+        label: Grupos de WhatsApp
+        file: content/grupos.json
+        format: json
+        description: Los grupos de la página Grupos.
+        fields:
+          - { name: _ayuda, widget: hidden, default: "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). Los links empiezan con https://chat.whatsapp.com/." }
+          - name: grupos
+            label: Grupos
+            label_singular: grupo
+            widget: list
+            summary: "{{fields.tipo}} · {{fields.nombre}}"
+            fields:
+              - { name: nombre, label: Nombre, widget: string }
+              - { name: descripcion, label: Descripción corta, widget: string }
+              - name: tipo
+                label: Tipo
+                widget: select
+                options:
+                  - { label: General de la carrera, value: carrera }
+                  - { label: CBC, value: cbc }
+                  - { label: Por año, value: año }
+                  - { label: Por materia, value: materia }
+              - name: carrera
+                label: Carrera
+                widget: select
+                required: false
+                hint: En los grupos de CBC dejalo vacío.
+                options:
+                  - { label: "(ninguna: CBC)", value: "" }
+                  - { label: Arquitectura, value: arquitectura }
+                  - { label: Diseño Gráfico, value: grafico }
+                  - { label: Diseño Industrial, value: industrial }
+                  - { label: Diseño de Indumentaria, value: indumentaria }
+                  - { label: Diseño Textil, value: textil }
+                  - { label: Diseño de Imagen y Sonido, value: imagen-y-sonido }
+                  - { label: Paisaje, value: paisaje }
+              - { name: link, label: Link de invitación, widget: string, pattern: ['^https://chat\.whatsapp\.com/', "Tiene que ser un link https://chat.whatsapp.com/..."] }

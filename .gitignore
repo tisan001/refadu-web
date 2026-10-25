@@ -1,0 +1,7 @@
+# lo que se genera
+dist/
+compresor/dist/
+node_modules/
+
+# material de partida: pesado y con archivos de terceros (manual de 194 MB, planes, fuentes originales)
+material/

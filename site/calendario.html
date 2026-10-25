@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calendario académico · ReFADU</title>
+    <meta name="description" content="Inscripciones, mesas de final y fechas importantes de la FADU, siempre actualizadas." />
+    <meta name="theme-color" content="#FF6E23" />
+    <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/refadu.css" />
+    <link rel="stylesheet" href="/css/secciones.css" />
+  </head>
+  <body data-pagina="calendario">
+    <!--#cabecera-->
+    <main id="contenido">
+      <section class="portada sobre-naranja con-grano">
+        <div class="contenedor portada-fila">
+          <div class="portada-titulo">
+            <h1 class="caja">Calendario</h1>
+            <p class="bajada">Inscripciones, mesas de final y feriados. Se actualiza solo: lo que cargamos en el calendario aparece acá.</p>
+          </div>
+          <img class="portada-ilus" src="/assets/ilustraciones/ilus-34.webp" alt="" width="260" height="260" />
+        </div>
+      </section>
+      <div class="franja" aria-hidden="true"></div>
+
+      <section class="seccion">
+        <div class="contenedor" id="calendario"></div>
+      </section>
+      <section class="seccion" aria-labelledby="titulo-fechas" id="bloque-fechas" hidden>
+        <div class="contenedor">
+          <h2 class="bloque-titulo" id="titulo-fechas"><span class="estrella" aria-hidden="true"></span>Fechas clave</h2>
+          <ul class="fechas" id="fechas"></ul>
+        </div>
+      </section>
+    </main>
+    <!--#pie-->
+    <script src="/js/calendario.js" defer></script>
+  </body>
+</html>

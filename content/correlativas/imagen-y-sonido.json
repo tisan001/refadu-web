@@ -1,0 +1,116 @@
+{
+  "_ayuda": "Correlativas de Diseño de Imagen y Sonido. Cómo editar este archivo: content/correlativas/LEEME.md",
+  "carrera": "imagen-y-sonido",
+  "nombre": "Diseño de Imagen y Sonido",
+  "plan": "IS17",
+  "fuente": "Cuadro de correlatividades oficial FADU, Plan IS17",
+  "notas": [
+    "Para cursar Tercer año necesitás todo Primer año aprobado, con finales.",
+    "Para cursar Cuarto año necesitás los TP de todo Segundo año.",
+    "Para recibirte necesitás 480 hs de materias no obligatorias: pueden ser todas electivas, con como mucho 120 hs (2 materias) de optativas, y al menos 60 hs de una electiva socio-humanística.",
+    "Para cursar electivas u optativas necesitás todo Primer año aprobado, con finales."
+  ],
+  "bloques": [
+    {
+      "id": "cbc",
+      "titulo": "CBC",
+      "materias": [
+        { "codigo": "ICSE", "nombre": "Intr. al Conocimiento de la Sociedad y el Estado" },
+        { "codigo": "IPC", "nombre": "Intr. al Pensamiento Científico" },
+        { "codigo": "ICP1", "nombre": "Intr. al Conocimiento Proyectual I" },
+        { "codigo": "ICP2", "nombre": "Intr. al Conocimiento Proyectual II" },
+        { "codigo": "MAT", "nombre": "Matemática" },
+        { "codigo": "SEM", "nombre": "Semiología" },
+        { "codigo": "TD", "nombre": "Taller de Dibujo", "anual": true }
+      ]
+    },
+    {
+      "id": "1",
+      "titulo": "Primer año",
+      "nota": "Para cursar y para rendir finales: CBC completo.",
+      "materias": [
+        { "codigo": "PAV1", "nombre": "Proyecto Audiovisual I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "S1", "nombre": "Sonido I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "M1", "nombre": "Montaje I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "NA", "nombre": "Narrativas Audiovisuales", "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "EA1", "nombre": "Escrituras Audiovisuales I", "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "DYRA", "nombre": "Dibujo y Representación Audiovisual", "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "IYC1", "nombre": "Iluminación y Cámara I", "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "E", "nombre": "Estética", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "SOC", "nombre": "Sociología", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] }
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Segundo año",
+      "materias": [
+        { "codigo": "PAV2", "nombre": "Proyecto Audiovisual II", "anual": true, "promocion": true, "finalesParaCursar": ["PAV1", "EA1|NA", "S1|IYC1|M1"], "cursadasParaCursar": ["SOC"] },
+        { "codigo": "S2", "nombre": "Sonido II", "promocion": true, "finalesParaCursar": ["S1"] },
+        { "codigo": "EA2", "nombre": "Escrituras Audiovisuales II", "promocion": true, "finalesParaCursar": ["EA1", "NA"] },
+        { "codigo": "PYP", "nombre": "Producción y Planificación", "promocion": true, "finalesParaCursar": ["PAV1", "EA1|NA", "S1|IYC1|M1"] },
+        { "codigo": "TECAV", "nombre": "Técnicas Audiovisuales", "promocion": true, "finalesParaCursar": ["CBC"] },
+        { "codigo": "IYC2", "nombre": "Iluminación y Cámara II", "promocion": true, "finalesParaCursar": ["IYC1"] },
+        { "codigo": "HAMA1", "nombre": "Historia Analítica de los Medios Audiovisuales I", "finalesParaCursar": ["CBC"] },
+        { "codigo": "TAV", "nombre": "Teorías Audiovisuales", "finalesParaCursar": ["CBC"] }
+      ]
+    },
+    {
+      "id": "3",
+      "titulo": "Tercer año",
+      "nota": "Para cursar Tercer año necesitás todo Primer año aprobado, con finales.",
+      "materias": [
+        { "codigo": "PAV3", "nombre": "Proyecto Audiovisual III", "anual": true, "promocion": true, "finalesParaCursar": ["PAV2", "IYC2|S2", "PYP", "TECAV", "año:1"] },
+        { "codigo": "M2", "nombre": "Montaje II", "anual": true, "promocion": true, "finalesParaCursar": ["PAV2", "M1", "año:1"] },
+        { "codigo": "DYC", "nombre": "Difusión y Comercialización de los Medios", "promocion": true, "finalesParaCursar": ["PAV2", "PYP", "año:1"] },
+        { "codigo": "HAMA2", "nombre": "Historia Analítica de los Medios Audiovisuales II", "finalesParaCursar": ["año:1"], "cursadasParaCursar": ["HAMA1"], "finalesParaRendir": ["HAMA1"] },
+        { "codigo": "TEM", "nombre": "Teoría y Estética de los Medios", "finalesParaCursar": ["CBC", "año:1"] }
+      ]
+    },
+    {
+      "id": "4",
+      "titulo": "Cuarto año",
+      "nota": "Para cursar Cuarto año necesitás los TP de todo Segundo año.",
+      "materias": [
+        { "codigo": "PAV4", "nombre": "Proyecto Audiovisual IV", "anual": true, "promocion": true, "finalesParaCursar": ["PAV3", "M2", "DYC"], "cursadasParaCursar": ["año:2"] }
+      ]
+    },
+    {
+      "id": "electivo",
+      "titulo": "Tramo electivo",
+      "nota": "Se cursan en Tercer y Cuarto año. Para cursarlas necesitás todo Primer año aprobado, con finales.",
+      "materias": [
+        {
+          "grupo": "Materias no obligatorias",
+          "horas": 480,
+          "maximoHorasOptativas": 120,
+          "minimoHorasSocioHumanisticas": 60,
+          "nota": "Tenés que sumar 480 hs (una cuatrimestral = 60 hs, una anual = 120 hs). Pueden ser todas electivas; de optativas podés hacer como mucho 120 hs (2 materias), o ninguna. Al menos 60 hs tienen que ser de una electiva socio-humanística.",
+          "materias": [
+            { "codigo": "OPT1", "nombre": "Optativa 1", "optativa": true, "finalesParaCursar": ["año:1"], "nota": "No hace falta que hagas optativas. Puede ser una materia optativa o una pasantía con crédito académico." },
+            { "codigo": "OPT2", "nombre": "Optativa 2", "optativa": true, "finalesParaCursar": ["año:1"], "nota": "No hace falta que hagas optativas. Puede ser una materia optativa o una pasantía con crédito académico." },
+            { "codigo": "EA3", "nombre": "Escrituras Audiovisuales III", "promocion": true, "finalesParaCursar": ["PAV2", "EA2", "año:1"] },
+            { "codigo": "EA4", "nombre": "Escrituras Audiovisuales IV", "promocion": true, "finalesParaCursar": ["EA3", "año:1"] },
+            { "codigo": "PNYJ", "nombre": "Producción Audiovisual en Niñez y Juventud", "promocion": true, "finalesParaCursar": ["PAV3", "DYC", "año:1"] },
+            { "codigo": "PSP", "nombre": "Producción Audiovisual en el Sector Público", "promocion": true, "finalesParaCursar": ["PAV3", "DYC", "año:1"] },
+            { "codigo": "PYMI", "nombre": "Producción y Mercados Internacionales", "promocion": true, "finalesParaCursar": ["PAV3", "DYC", "año:1"] },
+            { "codigo": "EMDA", "nombre": "Economía de los Medios y Derecho Aplicado", "promocion": true, "finalesParaCursar": ["PAV3", "DYC", "año:1"] },
+            { "codigo": "MA", "nombre": "Morfologías Audiovisuales", "promocion": true, "finalesParaCursar": ["PAV2", "TECAV", "año:1"] },
+            { "codigo": "DA", "nombre": "Dirección de Actores", "promocion": true, "finalesParaCursar": ["PAV2", "año:1"] },
+            { "codigo": "DAR", "nombre": "Dirección de Arte", "promocion": true, "finalesParaCursar": ["PAV2", "año:1"] },
+            { "codigo": "DF", "nombre": "Dirección de Fotografía", "promocion": true, "finalesParaCursar": ["PAV2", "IYC2", "año:1"] },
+            { "codigo": "S3", "nombre": "Sonido III", "promocion": true, "finalesParaCursar": ["PAV2", "S2", "año:1"] },
+            { "codigo": "M3", "nombre": "Montaje III", "promocion": true, "finalesParaCursar": ["M2", "año:1"] },
+            { "codigo": "PBA", "nombre": "Principios y Bases de la Animación", "promocion": true, "finalesParaCursar": ["PAV2", "TECAV", "año:1"] },
+            { "codigo": "A3D", "nombre": "Animación 3D", "promocion": true, "finalesParaCursar": ["PAV2", "TECAV", "año:1"] },
+            { "codigo": "PAI", "nombre": "Proyectos Audiovisuales Interactivos", "promocion": true, "finalesParaCursar": ["PAV2", "TECAV", "año:1"] },
+            { "codigo": "IPROG", "nombre": "Introducción a la Programación", "promocion": true, "finalesParaCursar": ["PAV2", "TECAV", "año:1"] },
+            { "codigo": "MMA", "nombre": "Música en Medios Audiovisuales", "promocion": true, "finalesParaCursar": ["PAV2", "año:1"], "cursadasParaCursar": ["HAMA1"] },
+            { "codigo": "DYEC", "nombre": "Diseño y Estudios Culturales", "socioHumanistica": true, "finalesParaCursar": ["PAV2", "año:1"], "cursadasParaCursar": ["TEM"], "finalesParaRendir": ["TEM"] },
+            { "codigo": "CDAV", "nombre": "Crítica del Diseño Audiovisual", "socioHumanistica": true, "finalesParaCursar": ["PAV2", "año:1"], "cursadasParaCursar": ["HAMA2"], "finalesParaRendir": ["HAMA2"] },
+            { "codigo": "LAAV", "nombre": "Literatura en las Artes Audiovisuales", "socioHumanistica": true, "finalesParaCursar": ["PAV2", "año:1"], "cursadasParaCursar": ["TAV"], "finalesParaRendir": ["TAV"] }
+          ]
+        }
+      ]
+    }
+  ]
+}

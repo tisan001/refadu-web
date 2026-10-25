@@ -1,0 +1,10 @@
+# Para publicar el Worker con wrangler (opcional: también se puede pegar worker.js en el panel de Cloudflare).
+#   npx wrangler deploy
+#   npx wrangler secret put GITHUB_CLIENT_SECRET
+name = "refadu-login"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+GITHUB_CLIENT_ID = "" # TODO: Client ID de la OAuth App de GitHub
+ORIGENES = ""         # TODO: por ejemplo "https://refadu.pages.dev"

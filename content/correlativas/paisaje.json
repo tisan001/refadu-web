@@ -1,0 +1,80 @@
+{
+  "_ayuda": "Correlativas de la Lic. en Planificación y Diseño del Paisaje. Cómo editar este archivo: content/correlativas/LEEME.md",
+  "carrera": "paisaje",
+  "nombre": "Lic. en Planificación y Diseño del Paisaje",
+  "plan": "DP05",
+  "fuente": "Cuadro de correlatividades oficial FADU, Plan DP05",
+  "notas": ["Tenés que aprobar 60 hs de Materia Optativa 1 y 120 hs de Materia Optativa 2."],
+  "bloques": [
+    {
+      "id": "cbc",
+      "titulo": "CBC",
+      "materias": [
+        { "codigo": "ICSE", "nombre": "Intr. al Conocimiento de la Sociedad y el Estado" },
+        { "codigo": "IPC", "nombre": "Intr. al Pensamiento Científico" },
+        { "codigo": "ICP1", "nombre": "Intr. al Conocimiento Proyectual I" },
+        { "codigo": "ICP2", "nombre": "Intr. al Conocimiento Proyectual II" },
+        { "codigo": "MAT", "nombre": "Matemática" },
+        { "codigo": "BIO", "nombre": "Biología" },
+        { "codigo": "TD", "nombre": "Taller de Dibujo", "anual": true }
+      ]
+    },
+    {
+      "id": "1",
+      "titulo": "Primer año",
+      "nota": "Para cursar y para rendir finales: CBC completo.",
+      "materias": [
+        { "codigo": "PDP1", "nombre": "Planificación y Diseño del Paisaje I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "SRG", "nombre": "Sistemas de Representación Geométrica", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "QG", "nombre": "Química General", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "BG", "nombre": "Botánica General", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "FA", "nombre": "Física Aplicada", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "QB", "nombre": "Química Biológica", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "BS", "nombre": "Botánica Sistemática", "finalesParaCursar": ["CBC"], "cursadasParaCursar": ["BG"], "finalesParaRendir": ["BG"] },
+        { "codigo": "MEPC", "nombre": "Materiales, Elementos y Procedimientos de Construcción", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "V1", "nombre": "Vegetación I", "finalesParaCursar": ["CBC", "BG"], "finalesParaRendir": ["BG"] }
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Segundo año",
+      "materias": [
+        { "codigo": "PDP2", "nombre": "Planificación y Diseño del Paisaje II", "anual": true, "promocion": true, "finalesParaCursar": ["PDP1", "SRG", "V1"] },
+        { "codigo": "V2", "nombre": "Vegetación II", "anual": true, "finalesParaCursar": ["V1"], "finalesParaRendir": ["V1"] },
+        { "codigo": "FV", "nombre": "Fisiología Vegetal", "finalesParaCursar": ["QB", "BG"], "finalesParaRendir": ["QB", "BG"] },
+        { "codigo": "E", "nombre": "Edafología", "finalesParaCursar": ["QB"], "finalesParaRendir": ["QB"] },
+        { "codigo": "IYE", "nombre": "Instalaciones y Equipamientos", "cursadasParaCursar": ["FA", "MEPC"], "finalesParaRendir": ["FA", "MEPC"] },
+        { "codigo": "CYF", "nombre": "Climatología y Fenología", "finalesParaCursar": ["BS"], "finalesParaRendir": ["BS"] },
+        { "codigo": "T", "nombre": "Topografía", "finalesParaCursar": ["SRG"], "finalesParaRendir": ["SRG"] },
+        { "codigo": "MYC1", "nombre": "Morfología y Comunicación I", "anual": true, "promocion": true, "finalesParaCursar": ["SRG"] }
+      ]
+    },
+    {
+      "id": "3",
+      "titulo": "Tercer año",
+      "materias": [
+        { "codigo": "PDP3", "nombre": "Planificación y Diseño del Paisaje III", "anual": true, "promocion": true, "finalesParaCursar": ["PDP2", "MYC1"] },
+        { "codigo": "HAP1", "nombre": "Historia de la Arquitectura Paisajística I", "anual": true, "finalesParaCursar": ["PDP1"], "finalesParaRendir": ["PDP1"] },
+        { "codigo": "MYC2", "nombre": "Morfología y Comunicación II", "promocion": true, "finalesParaCursar": ["PDP1", "MYC1"] },
+        { "codigo": "MSV", "nombre": "Manejo del Suelo y la Vegetación", "finalesParaCursar": ["FV", "T", "CYF", "IYE", "V2"], "finalesParaRendir": ["FV", "T", "CYF", "IYE", "V2"] },
+        { "codigo": "ECO", "nombre": "Ecología", "finalesParaCursar": ["BS", "FV", "E", "CYF"], "finalesParaRendir": ["BS", "FV", "E", "CYF"] },
+        { "codigo": "G", "nombre": "Geografía", "finalesParaCursar": ["PDP2"], "finalesParaRendir": ["PDP2"] },
+        { "codigo": "FIT", "nombre": "Fitogeografía Argentina", "finalesParaCursar": ["BS", "T", "CYF"], "finalesParaRendir": ["BS", "T", "CYF"] },
+        { "codigo": "MO1", "nombre": "Materia Optativa 1", "promocion": true, "finalesParaCursar": ["año:2"], "nota": "60 hs." }
+      ]
+    },
+    {
+      "id": "4",
+      "titulo": "Cuarto año",
+      "materias": [
+        { "codigo": "PDP4", "nombre": "Planificación y Diseño del Paisaje IV", "anual": true, "promocion": true, "finalesParaCursar": ["PDP3", "MYC2"] },
+        { "codigo": "HAP2", "nombre": "Historia de la Arquitectura Paisajística II", "finalesParaCursar": ["PDP3"], "cursadasParaCursar": ["HAP1"], "finalesParaRendir": ["PDP3", "HAP1"] },
+        { "codigo": "PUR", "nombre": "Planeamiento Urbano y Regional", "finalesParaCursar": ["PDP3", "MYC2", "G"], "finalesParaRendir": ["PDP3", "MYC2", "G"] },
+        { "codigo": "EP", "nombre": "Ecología del Paisaje", "finalesParaCursar": ["ECO", "FIT"], "finalesParaRendir": ["ECO", "FIT"] },
+        { "codigo": "TF", "nombre": "Trabajo Final", "promocion": true, "finalesParaCursar": ["PDP3", "MYC2", "EP"], "finalesParaRendir": ["obligatorias"] },
+        { "codigo": "PP", "nombre": "Práctica Profesional", "finalesParaCursar": ["PDP3", "MSV"], "finalesParaRendir": ["PDP3", "MSV"] },
+        { "codigo": "MO2", "nombre": "Materia Optativa 2", "promocion": true, "finalesParaCursar": ["año:3"], "nota": "120 hs." }
+      ]
+    }
+  ]
+}

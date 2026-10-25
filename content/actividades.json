@@ -1,0 +1,27 @@
+{
+  "_ayuda": "Una tarjeta por actividad. 'fecha' va como AAAA-MM-DD. 'hora' y 'inscripcion' son opcionales. Las que ya pasaron se muestran al final como 'ya pasó'. TODO ESTO ES DE EJEMPLO.",
+  "actividades": [
+    {
+      "titulo": "Charla de bienvenida al CBC (ejemplo)",
+      "fecha": "2026-11-12",
+      "hora": "18:00",
+      "lugar": "Pabellón 3, aula a confirmar",
+      "descripcion": "Te contamos cómo es la cursada, qué materias tenés y cómo moverte en Ciudad Universitaria.",
+      "inscripcion": "https://forms.gle/EJEMPLO-CHARLA-CBC"
+    },
+    {
+      "titulo": "Taller de armado de láminas (ejemplo)",
+      "fecha": "2026-11-20",
+      "hora": "17:30",
+      "lugar": "Pabellón 3, 2º piso",
+      "descripcion": "Tips para exportar, comprimir y entregar sin morir en el intento.",
+      "inscripcion": "https://forms.gle/EJEMPLO-TALLER-LAMINAS"
+    },
+    {
+      "titulo": "Juntada de fin de cuatrimestre (ejemplo)",
+      "fecha": "2026-12-05",
+      "lugar": "Patio del Pabellón 3",
+      "descripcion": "Para cerrar el año entre compañeres."
+    }
+  ]
+}

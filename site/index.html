@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ReFADU · todo para tu cursada en la FADU</title>
+    <meta name="description" content="Grupos de WhatsApp, recomendaciones, actividades, becas, apuntes, simulador de correlativas y compresor de PDF para estudiantes de FADU y del CBC." />
+    <meta name="theme-color" content="#FF6E23" />
+    <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/refadu.css" />
+    <link rel="stylesheet" href="/css/inicio.css" />
+  </head>
+  <body data-pagina="inicio">
+    <!--#cabecera-->
+    <main id="contenido">
+      <section class="inicio-portada sobre-naranja con-grano">
+        <div class="contenedor inicio-portada-fila">
+          <div>
+            <h1 class="solo-lectores">ReFADU</h1>
+            <img class="inicio-logo" src="/assets/logos/refadu-vertical-naranja.svg" alt="ReFADU" width="440" height="281" />
+            <p class="inicio-bajada">
+              Todo lo que necesitás para tu cursada en la FADU y el CBC, en un solo lugar: grupos, apuntes, becas,
+              correlativas y más.
+            </p>
+          </div>
+          <img class="inicio-ilus" src="/assets/ilustraciones/ilus-36.webp" alt="" width="420" height="420" />
+        </div>
+      </section>
+      <div class="franja" aria-hidden="true"></div>
+
+      <section class="seccion" aria-labelledby="titulo-accesos">
+        <div class="contenedor">
+          <h2 class="bloque-titulo" id="titulo-accesos"><span class="estrella" aria-hidden="true"></span>¿Qué buscás?</h2>
+          <ul class="accesos">
+            <li>
+              <a class="acceso violeta" href="/grupos">
+                <img src="/assets/ilustraciones/ilus-32.webp" alt="" width="120" height="120" loading="lazy" />
+                <span class="acceso-titulo">Grupos</span>
+                <span class="acceso-texto">Los WhatsApp de tu carrera, del CBC y de cada materia.</span>
+              </a>
+            </li>
+            <li>
+              <a class="acceso naranja" href="/recomendaciones">
+                <img src="/assets/ilustraciones/ilus-57.webp" alt="" width="120" height="120" loading="lazy" />
+                <span class="acceso-titulo">Recomen&shy;daciones</span>
+                <span class="acceso-texto">Qué cátedra elegir, contado por quienes ya la cursaron.</span>
+              </a>
+            </li>
+            <li>
+              <a class="acceso oscuro" href="/actividades">
+                <img src="/assets/ilustraciones/ilus-7.webp" alt="" width="120" height="120" loading="lazy" />
+                <span class="acceso-titulo">Actividades</span>
+                <span class="acceso-texto">Charlas, talleres y juntadas. Con fecha, lugar e inscripción.</span>
+              </a>
+            </li>
+            <li>
+              <a class="acceso beige" href="/calendario">
+                <img src="/assets/ilustraciones/ilus-34.webp" alt="" width="120" height="120" loading="lazy" />
+                <span class="acceso-titulo">Calendario</span>
+                <span class="acceso-texto">Inscripciones, mesas de final y feriados, siempre al día.</span>
+              </a>
+            </li>
+            <li>
+              <a class="acceso naranja" href="/becas">
+                <img src="/assets/ilustraciones/ilus-60.webp" alt="" width="120" height="120" loading="lazy" />
+                <span class="acceso-titulo">Becas</span>
+                <span class="acceso-texto">Requisitos, fecha límite y dónde anotarte.</span>
+              </a>
+            </li>
+            <li>
+              <a class="acceso violeta" href="/apuntes">
+                <img src="/assets/ilustraciones/ilus-39.webp" alt="" width="120" height="120" loading="lazy" />
+                <span class="acceso-titulo">Apuntes</span>
+                <span class="acceso-texto">El banco de apuntes por carrera y materia. Y podés sumar el tuyo.</span>
+              </a>
+            </li>
+            <li>
+              <a class="acceso beige" href="/correlativas">
+                <img src="/assets/ilustraciones/ilus-10.webp" alt="" width="120" height="120" loading="lazy" />
+                <span class="acceso-titulo">Correlativas</span>
+                <span class="acceso-texto">Marcá lo que tenés y mirá qué podés cursar y rendir.</span>
+              </a>
+            </li>
+            <li>
+              <a class="acceso oscuro" href="/compresor/">
+                <img src="/assets/ilustraciones/ilus-9.webp" alt="" width="120" height="120" loading="lazy" />
+                <span class="acceso-titulo">Compresor</span>
+                <span class="acceso-texto">Achicá tus láminas en PDF sin subirlas a ningún lado.</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="seccion sobre-violeta" aria-labelledby="titulo-proximas" id="proximas" hidden>
+        <div class="contenedor">
+          <h2 class="bloque-titulo" id="titulo-proximas"><span class="estrella" aria-hidden="true"></span>Se viene</h2>
+          <div class="grilla" id="lista-proximas"></div>
+          <p class="inicio-mas"><a class="boton vacio" href="/actividades">Ver todas las actividades <span class="flecha" aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+    </main>
+    <!--#pie-->
+    <script src="/js/actividades-tarjeta.js" defer></script>
+    <script src="/js/inicio.js" defer></script>
+  </body>
+</html>

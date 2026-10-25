@@ -1,0 +1,115 @@
+{
+  "_ayuda": "Correlativas de Diseño Industrial. Cómo editar este archivo: content/correlativas/LEEME.md",
+  "carrera": "industrial",
+  "nombre": "Diseño Industrial",
+  "plan": "DI18",
+  "fuente": "Cuadro de correlatividades oficial FADU, Plan DI18",
+  "notas": [
+    "Para cursar Tercer año necesitás los TP de todo Primer año; para Cuarto, los de todo Segundo; para Quinto, los de todo Tercero.",
+    "Para cursar electivas, optativas y la Práctica Profesional necesitás todo Segundo año aprobado, con finales.",
+    "Electivas y optativas se cursan en Cuarto o Quinto año: 120 hs de electivas y 120 hs de optativas. Podés reemplazar 2 electivas de 60 hs por una de 120 hs."
+  ],
+  "bloques": [
+    {
+      "id": "cbc",
+      "titulo": "CBC",
+      "materias": [
+        { "codigo": "ICSE", "nombre": "Intr. al Conocimiento de la Sociedad y el Estado" },
+        { "codigo": "IPC", "nombre": "Intr. al Pensamiento Científico" },
+        { "codigo": "ICP1", "nombre": "Intr. al Conocimiento Proyectual I" },
+        { "codigo": "ICP2", "nombre": "Intr. al Conocimiento Proyectual II" },
+        { "codigo": "MAT", "nombre": "Matemática" },
+        { "codigo": "ANT", "nombre": "Antropología" },
+        { "codigo": "TD", "nombre": "Taller de Dibujo", "anual": true }
+      ]
+    },
+    {
+      "id": "1",
+      "titulo": "Primer año",
+      "nota": "Para cursar y para rendir finales: CBC completo.",
+      "materias": [
+        { "codigo": "TDI1", "nombre": "Taller de Diseño Industrial I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "M1", "nombre": "Morfología I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "T1", "nombre": "Tecnología I", "anual": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "F1", "nombre": "Física I", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "MAT1", "nombre": "Matemática I", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "AP", "nombre": "Análisis de Productos", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] }
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Segundo año",
+      "materias": [
+        { "codigo": "TDI2", "nombre": "Taller de Diseño Industrial II", "anual": true, "promocion": true, "finalesParaCursar": ["TDI1", "AP"], "cursadasParaCursar": ["T1"] },
+        { "codigo": "M2", "nombre": "Morfología II", "anual": true, "promocion": true, "finalesParaCursar": ["TDI1", "M1"] },
+        { "codigo": "T2", "nombre": "Tecnología II", "anual": true, "cursadasParaCursar": ["T1", "F1"], "finalesParaRendir": ["T1", "F1"] },
+        { "codigo": "EYFH", "nombre": "Ergonomía y Factores Humanos", "finalesParaCursar": ["TDI1", "AP"], "cursadasParaCursar": ["F1"], "finalesParaRendir": ["F1"] },
+        { "codigo": "HDI1", "nombre": "Historia del Diseño Industrial I", "finalesParaCursar": ["CBC"] }
+      ]
+    },
+    {
+      "id": "3",
+      "titulo": "Tercer año",
+      "nota": "Para cursar Tercer año necesitás los TP de todo Primer año.",
+      "materias": [
+        { "codigo": "TDI3", "nombre": "Taller de Diseño Industrial III", "anual": true, "promocion": true, "finalesParaCursar": ["TDI2", "M1"], "cursadasParaCursar": ["T2", "EYFH", "T1", "MAT1", "F1", "año:1"] },
+        { "codigo": "M3", "nombre": "Morfología III", "anual": true, "promocion": true, "finalesParaCursar": ["TDI2", "M2", "T1", "MAT1", "F1"], "cursadasParaCursar": ["año:1"] },
+        { "codigo": "T3", "nombre": "Tecnología III", "anual": true, "finalesParaCursar": ["TDI1", "M1", "MAT1", "T1", "F1", "AP"], "cursadasParaCursar": ["T2", "año:1"], "finalesParaRendir": ["T2"] },
+        { "codigo": "F2", "nombre": "Física II", "finalesParaCursar": ["TDI1", "M1", "T1", "MAT1", "AP"], "cursadasParaCursar": ["F1", "año:1"], "finalesParaRendir": ["F1"] },
+        { "codigo": "HDI2", "nombre": "Historia del Diseño Industrial II", "finalesParaCursar": ["TDI1", "M1", "T1", "AP"], "cursadasParaCursar": ["HDI1", "MAT1", "F1", "año:1"], "finalesParaRendir": ["HDI1"] }
+      ]
+    },
+    {
+      "id": "4",
+      "titulo": "Cuarto año",
+      "nota": "Para cursar Cuarto año necesitás los TP de todo Segundo año.",
+      "materias": [
+        { "codigo": "T4", "nombre": "Tecnología IV", "anual": true, "finalesParaCursar": ["M2", "TDI2", "T2", "EYFH"], "cursadasParaCursar": ["T3", "F2", "HDI1", "año:2"], "finalesParaRendir": ["F2", "T3"], "nota": "Podés cursarla en Cuarto o en Quinto año, junto con Proyecto Final." },
+        { "codigo": "TDI4", "nombre": "Taller de Diseño Industrial IV", "anual": true, "promocion": true, "finalesParaCursar": ["TDI3", "M2"], "cursadasParaCursar": ["T3", "F2", "EYFH", "HDI1", "T2", "año:2"] },
+        { "codigo": "SAD", "nombre": "Sociología Aplicada al Diseño", "finalesParaCursar": ["TDI2", "T2", "M2", "EYFH"], "cursadasParaCursar": ["HDI1", "HDI2", "año:2"], "finalesParaRendir": ["HDI2"] },
+        { "codigo": "GI", "nombre": "Gestión Industrial", "finalesParaCursar": ["TDI2", "T2", "M2", "EYFH"], "cursadasParaCursar": ["HDI1", "HDI2", "año:2"], "finalesParaRendir": ["HDI2"] }
+      ]
+    },
+    {
+      "id": "5",
+      "titulo": "Quinto año",
+      "nota": "Para cursar Quinto año necesitás los TP de todo Tercer año.",
+      "materias": [
+        { "codigo": "PF", "nombre": "Proyecto Final", "anual": true, "promocion": true, "finalesParaCursar": ["TDI4", "T3", "F2", "HDI2"], "cursadasParaCursar": ["T4", "año:3"] },
+        { "codigo": "GP", "nombre": "Gestión de Proyecto", "finalesParaCursar": ["TDI3", "T3", "F2", "HDI2"], "cursadasParaCursar": ["año:3"] },
+        { "codigo": "MID", "nombre": "Metodología de la Investigación en Diseño", "promocion": true, "finalesParaCursar": ["TDI3", "T2", "M3", "EYFH"], "cursadasParaCursar": ["T3", "F2", "HDI2", "año:3"] },
+        { "codigo": "LPP", "nombre": "Legislación y Práctica Profesional", "finalesParaCursar": ["TDI3", "T2", "M3", "EYFH"], "cursadasParaCursar": ["T3", "HDI2", "F2", "año:3"], "finalesParaRendir": ["T3", "HDI2"] },
+        { "codigo": "PP", "nombre": "Práctica Profesional", "promocion": true, "finalesParaCursar": ["TDI3", "T2", "M2", "EYFH", "HDI1", "año:2"], "cursadasParaCursar": ["F2", "HDI2"], "nota": "60 hs, entre Cuarto y Quinto año." }
+      ]
+    },
+    {
+      "id": "electivo",
+      "titulo": "Electivas y optativas",
+      "nota": "Se cursan en Cuarto o Quinto año. Necesitás todo Segundo año aprobado, con finales.",
+      "materias": [
+        {
+          "grupo": "Materias optativas",
+          "horas": 120,
+          "nota": "Tenés que sumar 120 hs de optativas (2 de 60 hs). No son lo mismo que las electivas.",
+          "materias": [
+            { "codigo": "OPT1", "nombre": "Optativa 1", "finalesParaCursar": ["TDI3", "T2", "M2", "EYFH", "año:2"], "cursadasParaCursar": ["F2", "HDI2"], "finalesParaRendir": ["F2", "HDI2"] },
+            { "codigo": "OPT2", "nombre": "Optativa 2", "finalesParaCursar": ["TDI3", "T2", "M2", "EYFH", "año:2"], "cursadasParaCursar": ["F2", "HDI2"], "finalesParaRendir": ["F2", "HDI2"] }
+          ]
+        },
+        {
+          "grupo": "Materias electivas",
+          "horas": 120,
+          "nota": "Tenés que sumar 120 hs de electivas: dos de 60 hs, o una de 120 hs en lugar de dos de 60.",
+          "materias": [
+            { "codigo": "DIGAP", "nombre": "Diseño de Interfases y Gráfica Aplicada a Productos", "finalesParaCursar": ["TDI3", "T2", "M2", "EYFH", "año:2"], "cursadasParaCursar": ["F2", "HDI2"], "finalesParaRendir": ["F2", "HDI2"] },
+            { "codigo": "MGE", "nombre": "Mercadotecnia y Gestión Empresaria", "finalesParaCursar": ["TDI3", "T2", "M2", "EYFH", "año:2"], "cursadasParaCursar": ["F2", "HDI2"], "finalesParaRendir": ["F2", "HDI2"] },
+            { "codigo": "AED", "nombre": "Aspectos Económicos del Diseño", "finalesParaCursar": ["TDI3", "T2", "M2", "EYFH", "año:2"], "cursadasParaCursar": ["F2", "HDI2"], "finalesParaRendir": ["F2", "HDI2"] },
+            { "codigo": "DEI", "nombre": "Diseño e Innovación", "finalesParaCursar": ["TDI3", "T2", "M2", "EYFH", "año:2"], "cursadasParaCursar": ["F2", "HDI2"], "finalesParaRendir": ["F2", "HDI2"] },
+            { "codigo": "DPS", "nombre": "Diseño para la Sustentabilidad", "finalesParaCursar": ["TDI3", "T2", "M2", "EYFH", "año:2"], "cursadasParaCursar": ["F2", "HDI2"], "finalesParaRendir": ["F2", "HDI2"] },
+            { "codigo": "EEU", "nombre": "Ergonomía y Experiencia de Usuario", "finalesParaCursar": ["TDI3", "T2", "M2", "EYFH", "año:2"], "cursadasParaCursar": ["F2", "HDI2"], "finalesParaRendir": ["F2", "HDI2"] }
+          ]
+        }
+      ]
+    }
+  ]
+}

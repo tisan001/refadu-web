@@ -1,0 +1,110 @@
+{
+  "_ayuda": "Correlativas de Arquitectura. Cómo editar este archivo: content/correlativas/LEEME.md",
+  "carrera": "arquitectura",
+  "nombre": "Arquitectura",
+  "plan": "AR14",
+  "fuente": "Cuadro de correlatividades oficial FADU, Plan AR14",
+  "notas": [
+    "La Práctica Profesional Asistida (PPA) es obligatoria solo para quienes ingresaron desde 2015, que además tienen que aprobar 240 hs de materias optativas.",
+    "Si ingresaste antes de 2015, tenés que aprobar 300 hs de materias optativas."
+  ],
+  "bloques": [
+    {
+      "id": "cbc",
+      "titulo": "CBC",
+      "materias": [
+        { "codigo": "ICSE", "nombre": "Intr. al Conocimiento de la Sociedad y el Estado" },
+        { "codigo": "IPC", "nombre": "Intr. al Pensamiento Científico" },
+        { "codigo": "ICP1", "nombre": "Intr. al Conocimiento Proyectual I" },
+        { "codigo": "ICP2", "nombre": "Intr. al Conocimiento Proyectual II" },
+        { "codigo": "MAT", "nombre": "Matemática" },
+        { "codigo": "FIL", "nombre": "Filosofía" },
+        { "codigo": "TD", "nombre": "Taller de Dibujo", "anual": true }
+      ]
+    },
+    {
+      "id": "1",
+      "titulo": "Primer año",
+      "nota": "Para cursar y para rendir finales: CBC completo.",
+      "materias": [
+        { "codigo": "A1", "nombre": "Arquitectura I", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "IAC", "nombre": "Introducción a la Arquitectura Contemporánea", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "SRG", "nombre": "Sistemas de Representación Geométrica", "anual": true, "promocion": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "ITC", "nombre": "Introducción a los Tipos Constructivos", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "ITE", "nombre": "Introducción a los Tipos Estructurales", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "FAA", "nombre": "Física Aplicada a la Arquitectura", "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] },
+        { "codigo": "MAT2", "nombre": "Matemática II", "anual": true, "finalesParaCursar": ["CBC"], "finalesParaRendir": ["CBC"] }
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Segundo año",
+      "materias": [
+        { "codigo": "A2", "nombre": "Arquitectura II", "anual": true, "promocion": true, "finalesParaCursar": ["A1", "SRG"], "cursadasParaCursar": ["ITC"] },
+        { "codigo": "RA", "nombre": "Representación Arquitectónica", "promocion": true, "finalesParaCursar": ["SRG"] },
+        { "codigo": "H1", "nombre": "Historia I", "anual": true, "cursadasParaCursar": ["IAC"], "finalesParaRendir": ["IAC"] },
+        { "codigo": "M1", "nombre": "Morfología I", "promocion": true, "finalesParaCursar": ["SRG"] },
+        { "codigo": "C1", "nombre": "Construcciones I", "cursadasParaCursar": ["ITC", "ITE", "MAT2"], "finalesParaRendir": ["ITC"] },
+        { "codigo": "E1", "nombre": "Estructuras I", "anual": true, "cursadasParaCursar": ["ITC", "ITE", "MAT2"], "finalesParaRendir": ["ITE"] },
+        { "codigo": "I1", "nombre": "Instalaciones I", "cursadasParaCursar": ["ITC", "FAA", "MAT2"], "finalesParaRendir": ["FAA"] }
+      ]
+    },
+    {
+      "id": "3",
+      "titulo": "Tercer año",
+      "materias": [
+        { "codigo": "A3", "nombre": "Arquitectura III", "anual": true, "promocion": true, "finalesParaCursar": ["A2", "M1", "RA"], "cursadasParaCursar": ["IAC", "C1", "I1", "E1"] },
+        { "codigo": "MP", "nombre": "Materialización de Proyectos", "promocion": true, "finalesParaCursar": ["A2", "M1", "RA"], "cursadasParaCursar": ["IAC", "C1", "I1", "E1"] },
+        { "codigo": "M2", "nombre": "Morfología II", "promocion": true, "finalesParaCursar": ["A1", "M1", "RA"] },
+        { "codigo": "H2", "nombre": "Historia II", "anual": true, "finalesParaCursar": ["A1", "SRG"], "cursadasParaCursar": ["H1"], "finalesParaRendir": ["H1"] },
+        { "codigo": "C2", "nombre": "Construcciones II", "finalesParaCursar": ["A1", "SRG"], "cursadasParaCursar": ["C1"], "finalesParaRendir": ["C1"] },
+        { "codigo": "E2", "nombre": "Estructuras II", "anual": true, "finalesParaCursar": ["A1", "SRG"], "cursadasParaCursar": ["C1", "E1"], "finalesParaRendir": ["E1"] },
+        { "codigo": "I2", "nombre": "Instalaciones II", "finalesParaCursar": ["A1", "SRG"], "cursadasParaCursar": ["C1", "I1"], "finalesParaRendir": ["I1"] }
+      ]
+    },
+    {
+      "id": "4",
+      "titulo": "Cuarto año",
+      "materias": [
+        { "codigo": "A4", "nombre": "Arquitectura IV", "anual": true, "promocion": true, "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A3", "M2", "MP"], "cursadasParaCursar": ["H1", "E1", "I2", "C2"] },
+        { "codigo": "T", "nombre": "Teoría de la Arquitectura", "promocion": true, "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A3", "M2", "MP"], "cursadasParaCursar": ["H1", "E1", "I1", "C1"] },
+        { "codigo": "H3", "nombre": "Historia III", "anual": true, "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A2", "M1", "RA"], "cursadasParaCursar": ["H2"], "finalesParaRendir": ["H2", "año:2"] },
+        { "codigo": "C3", "nombre": "Construcciones III", "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A2", "M1", "RA"], "cursadasParaCursar": ["C2"], "finalesParaRendir": ["C2", "año:2"] },
+        { "codigo": "E3", "nombre": "Estructuras III", "anual": true, "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A2", "M1", "RA"], "cursadasParaCursar": ["E2"], "finalesParaRendir": ["E2", "año:2"] },
+        { "codigo": "I3", "nombre": "Instalaciones III", "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A2", "M1", "RA"], "cursadasParaCursar": ["C2", "I2"], "finalesParaRendir": ["I2", "año:2"] },
+        { "codigo": "PU", "nombre": "Planificación Urbana", "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A3", "M1", "RA"], "cursadasParaCursar": ["H1", "E1", "I1"], "finalesParaRendir": ["H2", "año:2"] },
+        { "codigo": "PPA", "nombre": "Práctica Profesional Asistida", "promocion": true, "finalesParaCursar": ["año:3"], "nota": "Obligatoria para quienes ingresaron desde 2015." }
+      ]
+    },
+    {
+      "id": "5",
+      "titulo": "Quinto año",
+      "materias": [
+        { "codigo": "PUR", "nombre": "Proyecto Urbano", "promocion": true, "finalesParaCursar": ["A4", "H1", "C1", "E1", "I1", "T"], "cursadasParaCursar": ["H3", "C3", "E3", "I3"] },
+        { "codigo": "PA", "nombre": "Proyecto Arquitectónico", "promocion": true, "finalesParaCursar": ["PUR"] },
+        { "codigo": "DLO", "nombre": "Dirección y Legislación de Obra", "anual": true, "finalesParaCursar": ["A4", "H1", "C1", "E1", "I1"], "cursadasParaCursar": ["H2", "C2", "E2", "I2"], "finalesParaRendir": ["C3", "I3", "año:3"] }
+      ]
+    },
+    {
+      "id": "optativo",
+      "titulo": "Tramo optativo",
+      "nota": "En Arquitectura no hay electivas: hay materias optativas, que se cuentan por horas.",
+      "materias": [
+        {
+          "grupo": "Materias optativas",
+          "horas": 240,
+          "nota": "Tenés que sumar 240 hs de optativas (300 hs si ingresaste antes de 2015). Cada casillero es una optativa de 60 hs. DPC y Práctica de Investigación tienen sus propias correlativas.",
+          "materias": [
+            { "codigo": "OPT1", "nombre": "Optativa 1", "promocion": true, "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A3", "M1", "RA"], "cursadasParaCursar": ["H1", "E1", "I1"] },
+            { "codigo": "OPT2", "nombre": "Optativa 2", "promocion": true, "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A3", "M1", "RA"], "cursadasParaCursar": ["H1", "E1", "I1"] },
+            { "codigo": "OPT3", "nombre": "Optativa 3", "promocion": true, "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A3", "M1", "RA"], "cursadasParaCursar": ["H1", "E1", "I1"] },
+            { "codigo": "OPT4", "nombre": "Optativa 4", "promocion": true, "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A3", "M1", "RA"], "cursadasParaCursar": ["H1", "E1", "I1"] },
+            { "codigo": "OPT5", "nombre": "Optativa 5", "promocion": true, "finalesParaCursar": ["IAC", "ITC", "ITE", "FAA", "MAT2", "A3", "M1", "RA"], "cursadasParaCursar": ["H1", "E1", "I1"], "nota": "Solo si ingresaste antes de 2015 (300 hs)." },
+            { "codigo": "DPC", "nombre": "DPC", "promocion": true, "finalesParaCursar": ["A2", "M1", "RA"], "cursadasParaCursar": ["IAC", "C1", "I1"] },
+            { "codigo": "PINV", "nombre": "Práctica de Investigación", "promocion": true, "finalesParaCursar": ["año:1"] }
+          ]
+        }
+      ]
+    }
+  ]
+}

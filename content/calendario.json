@@ -1,0 +1,10 @@
+{
+  "_ayuda": "Pegá en 'calendarioId' el ID del Google Calendar público (Configuración del calendario → Integrar el calendario → ID del calendario; suele terminar en @group.calendar.google.com). El calendario tiene que ser público. Mientras diga EJEMPLO, la página muestra un aviso en lugar del calendario.",
+  "calendarioId": "EJEMPLO@group.calendar.google.com",
+  "zonaHoraria": "America/Argentina/Buenos_Aires",
+  "fechasClave": [
+    { "fecha": "2026-11-23", "texto": "Inscripción a finales de diciembre (ejemplo)" },
+    { "fecha": "2026-12-07", "texto": "Mesa de finales de diciembre (ejemplo)" },
+    { "fecha": "2027-02-15", "texto": "Inscripción a materias del 1er cuatrimestre (ejemplo)" }
+  ]
+}

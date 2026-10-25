@@ -1,0 +1,455 @@
+/* Compresor de láminas · interfaz con la identidad de ReFADU.
+   Los colores, tipografías, botones y cabecera vienen de /css/refadu.css (el del sitio). */
+
+.oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.sello {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin: 1.5rem 0 0;
+  max-width: 34rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 1.2rem;
+  background: var(--naranja);
+  color: var(--negro);
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+.sello svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  flex-shrink: 0;
+}
+
+.compresor {
+  max-width: 56rem;
+}
+.paso {
+  padding-top: clamp(2rem, 6vw, 3rem);
+}
+
+/* ------------------------------------------------------------ presets */
+
+.presets {
+  display: grid;
+  gap: 0.75rem;
+}
+@media (min-width: 44rem) {
+  .presets {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.preset {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 0.75rem;
+  align-content: start;
+  padding: 1rem 1.1rem 1.15rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  background: var(--beige);
+  cursor: pointer;
+}
+.preset input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.preset-marca {
+  grid-row: 1 / 3;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: 0.1rem;
+  border: 3px solid var(--negro);
+  border-radius: 50%;
+  background: var(--beige);
+}
+.preset-titulo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.preset-descripcion {
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+.preset:has(input:checked) {
+  background: var(--violeta);
+  color: var(--beige);
+  border-color: var(--negro);
+}
+.preset:has(input:checked) .preset-marca {
+  border-color: var(--beige);
+  background: var(--negro);
+  position: relative;
+}
+.preset:has(input:checked) .preset-marca::after {
+  content: "";
+  position: absolute;
+  inset: 0.15rem;
+  background: var(--naranja);
+  clip-path: var(--estrella);
+}
+.preset:has(input:focus-visible) {
+  outline: 3px solid var(--negro);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------ zona para soltar: vacía y arrastrando */
+
+.zona {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: clamp(1.75rem, 6vw, 3rem) 1.25rem;
+  text-align: center;
+  border: 4px dashed var(--negro);
+  border-radius: 1.8rem;
+  background: var(--beige);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.zona:hover {
+  background: var(--naranja);
+}
+.zona:focus-within {
+  outline: 3px solid var(--negro);
+  outline-offset: 4px;
+}
+.zona-ilus {
+  width: 5.5rem;
+  height: auto;
+  margin-bottom: 0.4rem;
+  transition: transform 0.2s;
+}
+.zona-titulo {
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  text-transform: uppercase;
+  font-size: clamp(1.25rem, 6vw, 2rem);
+  line-height: 1.05;
+  color: var(--violeta);
+}
+.zona-sub {
+  font-size: 1.2rem;
+}
+.zona-privado {
+  margin-top: 0.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+}
+.zona.con-archivos {
+  padding-block: 1.25rem;
+}
+.zona.con-archivos .zona-ilus,
+.zona.con-archivos .zona-privado {
+  display: none;
+}
+.zona.con-archivos .zona-titulo {
+  font-size: 1.2rem;
+}
+
+.zona.arrastrando {
+  background: var(--naranja);
+  border-style: solid;
+  border-color: var(--violeta);
+  transform: scale(1.015);
+  background-image: repeating-linear-gradient(135deg, transparent 0 18px, var(--beige) 18px 21px);
+}
+.zona.arrastrando .zona-titulo {
+  color: var(--negro);
+}
+.zona.arrastrando .zona-ilus {
+  transform: translateY(-6px) rotate(-6deg);
+}
+
+/* ------------------------------------------------------------ lista de archivos */
+
+.lista {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.item {
+  --icono-contraste: var(--beige);
+  padding: 0.9rem 1.1rem 1.1rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  background: var(--beige);
+}
+.item-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.item-icono svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.item-nombre {
+  flex: 1;
+  min-width: 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item-quitar {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font: 700 1.5rem/1 var(--texto);
+  cursor: pointer;
+}
+.item-quitar:hover {
+  background: var(--negro);
+  color: var(--beige);
+  border-color: var(--negro);
+}
+.item-cuerpo {
+  margin-top: 0.6rem;
+}
+.item-estado {
+  margin: 0;
+  font-size: 1.15rem;
+}
+.item-pct {
+  font-weight: 700;
+}
+
+/* esperando */
+.item[data-estado="esperando"] {
+  border-style: dashed;
+}
+
+/* comprimiendo */
+.item[data-estado="procesando"] {
+  background: var(--violeta);
+  color: var(--beige);
+}
+.item[data-estado="procesando"] .item-icono {
+  color: var(--naranja);
+}
+.barra {
+  height: 1.1rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid var(--beige);
+  border-radius: var(--redondeo);
+  overflow: hidden;
+}
+.barra-relleno {
+  height: 100%;
+  background: repeating-linear-gradient(135deg, var(--naranja) 0 10px, var(--beige) 10px 13px);
+  background-size: 200% 100%;
+  animation: avanzar 1.2s linear infinite;
+  transition: width 0.25s ease;
+}
+@keyframes avanzar {
+  to {
+    background-position: -36px 0;
+  }
+}
+.girando {
+  animation: girar 1.4s linear infinite;
+}
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* resultado: antes y después, con el % */
+.item[data-estado="listo"] {
+  --icono-contraste: var(--naranja);
+}
+.item[data-estado="listo"] .item-icono {
+  color: var(--negro);
+}
+.resultado {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+.resultado-sello {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: 7.25rem;
+  height: 7.25rem;
+  border-radius: 50%;
+  background: var(--negro);
+  color: var(--naranja);
+  text-align: center;
+}
+.resultado-sello.igual {
+  background: var(--violeta-claro);
+  color: var(--beige);
+}
+.resultado-pct {
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  font-size: 1.2rem; /* Climate Crisis es muy ancha: "−100%" tiene que entrar en el círculo */
+  line-height: 1;
+}
+.resultado-pct-texto {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  color: var(--beige);
+}
+.resultado-datos {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+}
+.comparacion {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  gap: 0.35rem 0.6rem;
+  align-items: center;
+}
+.comparacion-rotulo {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+.comparacion-barra {
+  height: 0.9rem;
+  border-radius: var(--redondeo);
+  border: 2px solid var(--negro);
+}
+.comparacion-barra.antes {
+  background: var(--violeta-claro);
+}
+.comparacion-barra.despues {
+  background: var(--naranja);
+}
+.comparacion-peso {
+  font-size: 1.1rem;
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 30rem) {
+  .resultado {
+    grid-template-columns: 1fr;
+  }
+}
+
+.avisos {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.avisos:empty {
+  display: none;
+}
+.avisos li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.avisos li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.7em;
+  height: 0.7em;
+  background: var(--violeta);
+  clip-path: var(--estrella);
+}
+
+/* error */
+.item[data-estado="error"] {
+  background: var(--negro);
+  color: var(--beige);
+  --icono-contraste: var(--negro);
+}
+.item[data-estado="error"] .item-icono {
+  color: var(--naranja);
+}
+.item-estado.error {
+  font-weight: 700;
+}
+.item[data-estado="error"] .boton {
+  margin-top: 0.75rem;
+  background: var(--beige);
+  color: var(--negro);
+  border-color: var(--beige);
+}
+.item[data-estado="error"] .item-quitar:hover,
+.item[data-estado="procesando"] .item-quitar:hover {
+  background: var(--beige);
+  color: var(--negro);
+  border-color: var(--beige);
+}
+.item[data-estado="error"] :focus-visible,
+.item[data-estado="procesando"] :focus-visible {
+  outline-color: var(--beige);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+/* ------------------------------------------------------------ cómo funciona */
+
+.como-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+@media (min-width: 44rem) {
+  .como-lista {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.como-lista li {
+  padding: 1rem 1.15rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+}
+.como-lista strong {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+}
+
+.licencia {
+  margin: 2.5rem 0 0;
+  font-size: 1.05rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barra-relleno,
+  .girando {
+    animation: none;
+  }
+}

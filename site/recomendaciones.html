@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recomendaciones · ReFADU</title>
+    <meta name="description" content="Recomendaciones de cátedras y materias de cada carrera de la FADU, contadas por estudiantes." />
+    <meta name="theme-color" content="#FF6E23" />
+    <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/refadu.css" />
+    <link rel="stylesheet" href="/css/secciones.css" />
+  </head>
+  <body data-pagina="recomendaciones">
+    <!--#cabecera-->
+    <main id="contenido">
+      <section class="portada sobre-naranja con-grano">
+        <div class="contenedor portada-fila">
+          <div class="portada-titulo">
+            <h1 class="caja" aria-label="Recomendaciones"><span class="linea-alterna" aria-hidden="true">Recomen-</span><span aria-hidden="true">daciones</span></h1>
+            <p class="bajada">¿Qué cátedra elegir? Leé lo que recomiendan quienes ya cursaron y contá tu experiencia para el que viene atrás.</p>
+          </div>
+          <img class="portada-ilus" src="/assets/ilustraciones/ilus-57.webp" alt="" width="260" height="260" />
+        </div>
+      </section>
+      <div class="franja rombos" aria-hidden="true"></div>
+
+      <section class="seccion">
+        <div class="contenedor">
+          <fieldset class="chips" id="carreras" style="margin-bottom: 1.5rem">
+            <legend class="subtitulo" style="margin-bottom: 0.6rem">Elegí tu carrera</legend>
+          </fieldset>
+          <div id="elegida" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+    <!--#pie-->
+    <script src="/js/recomendaciones.js" defer></script>
+  </body>
+</html>

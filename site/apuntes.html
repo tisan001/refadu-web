@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Banco de apuntes · ReFADU</title>
+    <meta name="description" content="Apuntes por carrera y materia de la FADU, en Drive. Y un formulario para sumar el tuyo." />
+    <meta name="theme-color" content="#FF6E23" />
+    <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/refadu.css" />
+    <link rel="stylesheet" href="/css/secciones.css" />
+  </head>
+  <body data-pagina="apuntes">
+    <!--#cabecera-->
+    <main id="contenido">
+      <section class="portada sobre-oscuro con-grano">
+        <div class="contenedor portada-fila">
+          <div class="portada-titulo">
+            <h1 class="caja">Apuntes</h1>
+            <p class="bajada">El banco de apuntes de ReFADU: resúmenes, teóricos y material de cada materia, ordenado por carrera.</p>
+          </div>
+          <img class="portada-ilus" src="/assets/ilustraciones/ilus-39.webp" alt="" width="260" height="260" />
+        </div>
+      </section>
+      <div class="franja zigzag" aria-hidden="true"></div>
+
+      <section class="seccion">
+        <div class="contenedor">
+          <div class="subir sobre-naranja" id="subir" hidden>
+            <img src="/assets/ilustraciones/ilus-5.webp" alt="" width="90" height="90" />
+            <div>
+              <h2>¿Tenés apuntes que sirvan?</h2>
+              <p>Subilos y los sumamos al banco para que le sirvan a alguien más.</p>
+            </div>
+            <a class="boton" id="subir-link" href="#" target="_blank" rel="noopener">Subir material <span class="flecha" aria-hidden="true">→</span></a>
+          </div>
+          <div class="desplegables" id="lista"></div>
+        </div>
+      </section>
+    </main>
+    <!--#pie-->
+    <script src="/js/apuntes.js" defer></script>
+  </body>
+</html>
