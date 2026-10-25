@@ -7,8 +7,8 @@ backend:
   repo: tisan001/refadu-web
   branch: main
   # Login con GitHub: ver "Editor de contenido" en el README.
-  # TODO: la dirección del Worker de login (login-editor/), cuando esté publicado
-  # base_url: https://refadu-login.<tu-subdominio>.workers.dev
+  # el Worker de login (login-editor/)
+  base_url: https://refadu-login.sanrt2001.workers.dev
   commit_messages:
     update: "Actualizar {{collection}} desde el editor"
 

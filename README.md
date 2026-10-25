@@ -33,22 +33,19 @@ commit en GitHub, y el sitio se actualiza solo en uno o dos minutos. Para sumar 
 **En tu compu**, sin login: `npm run editor`, abrí http://localhost:8080/admin/ y entrá. Los cambios se
 guardan directo en `content/`.
 
-**Online** hace falta, una sola vez:
+**Online** (en https://refadu-web.sanrt2001.workers.dev/admin/) el login es con GitHub, a través del
+Worker de `login-editor/worker.js`. Hace falta configurarlo una sola vez:
 
-1. Poner la cuenta y el nombre del repositorio en `backend.repo` de `site/admin/config.yml`.
-2. Configurar el login con GitHub:
-   - **En Netlify** (lo más simple): crear una *OAuth App* en GitHub (Settings → Developer settings →
-     OAuth Apps) con la URL de callback `https://api.netlify.com/auth/done`, y cargar su Client ID y
-     su secreto en Netlify (Site configuration → Access & security → OAuth → Install provider → GitHub).
-   - **En Cloudflare Pages** (lo que usamos): el puente del login es el Worker de `login-editor/worker.js`.
-     1. En Cloudflare: Workers & Pages → Create → Worker, nombre `refadu-login`, y pegá `worker.js`
-        (o `npx wrangler deploy` desde `login-editor/`).
-     2. En GitHub: una *OAuth App* con *Authorization callback URL*
-        `https://refadu-login.<tu-subdominio>.workers.dev/callback`.
-     3. En el Worker (Settings → Variables and Secrets): `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`
-        (como *Secret*) y `ORIGENES` con la dirección del sitio (por ejemplo `https://refadu.pages.dev`).
-     4. La dirección del Worker va en `backend.base_url` de `site/admin/config.yml`.
-3. Sumar como colaboradores del repositorio (con permiso de escritura) a quienes vayan a editar. Cada
+1. En Cloudflare: Workers & Pages → Create → Worker, nombre `refadu-login`, y pegá `worker.js`
+   (o `npx wrangler deploy` desde `login-editor/`). Queda en `https://refadu-login.sanrt2001.workers.dev`,
+   que es la dirección cargada en `backend.base_url` de `site/admin/config.yml`.
+2. En GitHub (Settings → Developer settings → OAuth Apps → New OAuth App):
+   - Homepage URL: `https://refadu-web.sanrt2001.workers.dev`
+   - Authorization callback URL: `https://refadu-login.sanrt2001.workers.dev/callback`
+3. En el Worker `refadu-login` (Settings → Variables and Secrets): `GITHUB_CLIENT_ID`,
+   `GITHUB_CLIENT_SECRET` (como *Secret*) y `ORIGENES` = `https://refadu-web.sanrt2001.workers.dev`
+   (si después hay un dominio propio, se suma separado por coma).
+4. Sumar como colaboradores del repositorio (con permiso de escritura) a quienes vayan a editar. Cada
    uno necesita su cuenta de GitHub.
 
 ## Verlo en tu compu
@@ -65,13 +62,15 @@ edita aparte con `npm run dev --prefix compresor`.
 
 ## Publicar (gratis)
 
-**Cloudflare Pages** o **Netlify**, conectados al repositorio:
+El sitio está en **Cloudflare Workers** (archivos estáticos), conectado al repositorio: cada push a
+`main` se publica solo en https://refadu-web.sanrt2001.workers.dev.
 
-- Comando de build: `npm run build`
-- Carpeta para publicar: `dist`
+- Build command: `npm run build` (arma `dist/`)
+- Deploy command: `npx wrangler deploy` (publica `dist/`, según `wrangler.jsonc`)
 - Versión de Node: 24 (está en `.node-version`)
 
-No hace falta ningún servidor: el compresor también corre entero en el navegador.
+No hace falta ningún servidor: el compresor también corre entero en el navegador. Si algún día se
+pasa a Cloudflare Pages o a Netlify, alcanza con el mismo build y la carpeta `dist`.
 
 ## Qué hay en cada carpeta
 
