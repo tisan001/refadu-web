@@ -1,0 +1,14 @@
+// Publicación en Cloudflare Workers (archivos estáticos).
+// En el panel del Worker: Build command = "npm run build", Deploy command = "npx wrangler deploy".
+// El build arma dist/ y wrangler publica esa carpeta tal cual.
+{
+  "name": "refadu-web",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dist",
+    // /grupos sirve grupos.html, como en el servidor local
+    "html_handling": "auto-trailing-slash",
+    // una dirección que no existe muestra nuestra página 404
+    "not_found_handling": "404-page"
+  }
+}
