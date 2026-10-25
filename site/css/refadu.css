@@ -579,6 +579,7 @@ body.menu-abierto {
   border: 3px solid var(--negro);
   border-radius: 1.4rem;
   background: var(--beige);
+  color: var(--negro); /* no heredar el beige de una sección violeta u oscura */
 }
 .tarjeta.naranja {
   background: var(--naranja);
