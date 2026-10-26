@@ -103,5 +103,7 @@ material/    lo que vino de partida (no se publica)
 
 ## El compresor de PDF
 
-Es AGPL-3.0, por MuPDF (licencia en `compresor/LICENSE`): su código tiene que estar publicado. Por eso
-este repositorio es público y la página del compresor lo linkea.
+Es AGPL-3.0, por MuPDF (licencia en `compresor/LICENSE`): la licencia pide que quien usa el compresor
+pueda conseguir su código fuente. Este repositorio es público, pero desde el 26/10/2026 la página del
+compresor ya no lo linkea (se decidió sacar el link "mirá el código"). Si hiciera falta cumplir la
+licencia de forma visible, alcanza con volver a poner ese link en `compresor/index.html`.
