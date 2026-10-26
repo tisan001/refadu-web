@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Importar grupos · Editor ReFADU</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/refadu.css" />
+    <link rel="stylesheet" href="/css/secciones.css" />
+    <link rel="stylesheet" href="/admin/importar.css" />
+  </head>
+  <body>
+    <header class="cabecera">
+      <div class="contenedor cabecera-fila">
+        <a class="cabecera-logo" href="/" aria-label="ReFADU, ir al inicio">
+          <img src="/assets/logos/refadu-horizontal-color.svg" alt="ReFADU" width="160" height="21" />
+        </a>
+        <a class="boton vacio chico" href="/admin/">Volver al editor</a>
+      </div>
+    </header>
+    <main id="contenido" class="contenedor importar">
+      <h1 class="caja">Importar grupos</h1>
+      <p class="bajada">Cargá muchos grupos de WhatsApp de una, desde un Excel (o una planilla de Google exportada como Excel o CSV).</p>
+
+      <section class="paso">
+        <h2 class="bloque-titulo"><span class="estrella" aria-hidden="true"></span>1. La planilla</h2>
+        <p>Bajá la plantilla, completá un renglón por grupo y guardala. La segunda hoja explica qué va en cada columna.</p>
+        <p><button type="button" class="boton" id="plantilla">Bajar la plantilla (.xlsx)</button></p>
+      </section>
+
+      <section class="paso">
+        <h2 class="bloque-titulo"><span class="estrella" aria-hidden="true"></span>2. Subila</h2>
+        <label class="zona-importar" id="zona">
+          <input type="file" id="archivo" accept=".xlsx,.xls,.csv,.ods" />
+          <span class="subtitulo">Elegí o soltá el archivo acá</span>
+          <span>.xlsx, .xls, .ods o .csv</span>
+        </label>
+        <p class="importar-error" id="error" role="alert" hidden></p>
+      </section>
+
+      <section class="paso" id="paso-revisar" hidden>
+        <h2 class="bloque-titulo"><span class="estrella" aria-hidden="true"></span>3. Revisá</h2>
+        <p id="resumen" aria-live="polite"></p>
+        <div class="tabla-envoltura">
+          <table class="tabla-importar">
+            <thead>
+              <tr><th>Fila</th><th>Estado</th><th>Nombre</th><th>Tipo</th><th>Carrera</th><th>Detalle</th><th>Link</th></tr>
+            </thead>
+            <tbody id="filas"></tbody>
+          </table>
+        </div>
+        <fieldset class="chips" id="modo">
+          <legend class="subtitulo">Qué hacer con los grupos que ya están</legend>
+          <label class="chip"><input type="radio" name="modo" value="agregar" checked /> Agregar a los que ya están</label>
+          <label class="chip"><input type="radio" name="modo" value="reemplazar" /> Reemplazar todos por los de la planilla</label>
+        </fieldset>
+        <p class="importar-acciones">
+          <button type="button" class="boton naranja" id="guardar" disabled>Guardar en el sitio</button>
+          <button type="button" class="boton vacio" id="descargar" disabled>Descargar grupos.json</button>
+        </p>
+        <p class="importar-nota" id="nota-login"></p>
+        <p class="importar-ok" id="ok" role="status" hidden></p>
+      </section>
+    </main>
+    <script src="/js/comun.js" defer></script>
+    <script
+      src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"
+      integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="/admin/importar.js" defer></script>
+  </body>
+</html>

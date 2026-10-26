@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). En los de CBC poné en 'anio' de qué año es el grupo (por ejemplo 2026). Los links empiezan con https://chat.whatsapp.com/.",
+  "_ayuda": "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). En los de CBC poné en 'anio' de qué año es el grupo (por ejemplo 2026). En los de materia poné en 'materia' cuál es (por ejemplo Morfología 1). En los de año poné en 'anioCursada' de qué año de la carrera es (1 a 6). Los links empiezan con https://chat.whatsapp.com/. Para cargar muchos de una, usá /admin/importar.html.",
   "grupos": [
     { "nombre": "Arquitectura · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "arquitectura", "link": "https://chat.whatsapp.com/KeXbXF3RVE5DQJ6Rpu8ocZ" },
     { "nombre": "Diseño Gráfico · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "grafico", "link": "https://chat.whatsapp.com/GTSFWSsPunz5xAYcrLzpw8" },

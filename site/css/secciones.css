@@ -39,6 +39,19 @@
   width: 100%;
 }
 
+.buscador-grupos {
+  flex: 1 1 14rem;
+}
+.buscador-grupos input {
+  border-radius: var(--redondeo);
+  min-height: 2.9rem;
+  border: 3px solid var(--negro);
+  padding: 0.55rem 1rem 0.45rem;
+  font: 300 1.15rem/1.2 var(--texto);
+  background: var(--beige);
+  color: var(--negro);
+}
+
 .resultado {
   margin: 0 0 1rem;
   font-weight: 700;
@@ -220,7 +233,7 @@
 }
 .fechas li {
   display: grid;
-  grid-template-columns: 5.5rem 1fr;
+  grid-template-columns: minmax(5.5rem, auto) 1fr;
   gap: 1rem;
   align-items: center;
   padding: 0.7rem 1rem;

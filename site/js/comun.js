@@ -92,6 +92,28 @@ window.ReFADU = {
     return new Date(a, m - 1, d).toLocaleDateString("es-AR", opciones);
   },
 
+  /** Último día de algo que puede durar varios días (fecha + fechaFin opcional). */
+  fin(item) {
+    return item.fechaFin && item.fechaFin > item.fecha ? item.fechaFin : item.fecha;
+  },
+
+  /** "jueves 12 de noviembre", o "del 11 al 15 de noviembre" si dura varios días. */
+  rango(item) {
+    const { fecha } = window.ReFADU;
+    const fin = window.ReFADU.fin(item);
+    if (fin === item.fecha) return fecha(item.fecha);
+    const mismoMes = item.fecha.slice(0, 7) === fin.slice(0, 7);
+    const desde = mismoMes ? fecha(item.fecha, { day: "numeric" }) : fecha(item.fecha, { day: "numeric", month: "long" });
+    return `del ${desde} al ${fecha(fin, { day: "numeric", month: "long" })}`;
+  },
+
+  /** "proxima", "en-curso" o "pasada", según hoy. */
+  estado(item) {
+    const { diasHasta } = window.ReFADU;
+    if (diasHasta(window.ReFADU.fin(item)) < 0) return "pasada";
+    return diasHasta(item.fecha) <= 0 ? "en-curso" : "proxima";
+  },
+
   /** Días desde hoy hasta la fecha (negativo si ya pasó). */
   diasHasta(iso) {
     const [a, m, d] = String(iso).split("-").map(Number);

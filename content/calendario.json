@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Pegá en 'calendarioId' el ID del Google Calendar público (Configuración del calendario → Integrar el calendario → ID del calendario; suele terminar en @group.calendar.google.com). El calendario tiene que ser público. Mientras diga EJEMPLO, la página muestra un aviso en lugar del calendario.",
+  "_ayuda": "Pegá en 'calendarioId' el ID del Google Calendar público (Configuración del calendario → Integrar el calendario → ID del calendario; suele terminar en @group.calendar.google.com). El calendario tiene que ser público. Mientras diga EJEMPLO, la página muestra un aviso en lugar del calendario. Cada fecha clave tiene 'fecha' y, si dura varios días, 'fechaFin' (el último día).",
   "calendarioId": "EJEMPLO@group.calendar.google.com",
   "zonaHoraria": "America/Argentina/Buenos_Aires",
   "fechasClave": [

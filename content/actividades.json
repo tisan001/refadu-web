@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Una tarjeta por actividad. 'fecha' va como AAAA-MM-DD. 'hora' y 'inscripcion' son opcionales. Las que ya pasaron se muestran al final como 'ya pasó'. TODO ESTO ES DE EJEMPLO.",
+  "_ayuda": "Una tarjeta por actividad. 'fecha' va como AAAA-MM-DD. Si dura varios días, 'fecha' es el primero y 'fechaFin' el último (por ejemplo del 2026-11-11 al 2026-11-15). 'hora', 'fechaFin' e 'inscripcion' son opcionales. Las que ya pasaron se muestran al final como 'ya pasó'.",
   "actividades": [
     {
       "titulo": "Charla de bienvenida al CBC (ejemplo)",

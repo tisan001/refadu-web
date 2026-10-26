@@ -27,9 +27,11 @@ apunta a una materia que no existe.
 
 En `/admin/` hay un editor con formularios ([Decap CMS](https://decapcms.org)) para:
 
-- **Actividades** (con fecha, lugar y link de inscripción)
-- **Calendario académico** (el ID del calendario y las fechas clave)
-- **Grupos de WhatsApp** (en los de CBC, con su año)
+- **Actividades** (con fecha, o del día X al día Y si dura varios días, lugar y link de inscripción)
+- **Calendario académico** (el ID del calendario y las fechas clave, que también pueden durar varios días)
+- **Grupos de WhatsApp** (en los de CBC, con su año; en los de materia, cuál; en los de año, de qué año).
+  Para cargar muchos de una: **`/admin/importar.html`** recibe un Excel (con plantilla para bajar), revisa
+  cada fila y los guarda con la misma sesión del editor.
 - **Banco de apuntes** (formulario para subir material, y carpetas por carrera y por materia)
 - **Becas**
 - **Recomendaciones** (el cuatrimestre, el formulario y el link a las recomendaciones de cada carrera)

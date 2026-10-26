@@ -74,10 +74,27 @@ export function verificar() {
   for (const archivo of archivos) {
     const datos = leer(archivo, errores);
     if (!datos) continue;
+    // fechas: AAAA-MM-DD, y si dura varios días, el último no puede ser antes del primero
+    const conFechas = { "actividades.json": ["actividades", "titulo"], "calendario.json": ["fechasClave", "texto"] }[path.basename(archivo)];
+    if (conFechas) {
+      const [lista, nombre] = conFechas;
+      const esFecha = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s ?? "");
+      for (const item of datos[lista] ?? []) {
+        const donde = `content/${path.basename(archivo)}: "${item[nombre]}"`;
+        if (!esFecha(item.fecha)) errores.push(`${donde} no tiene una fecha válida (va como AAAA-MM-DD).`);
+        if (item.fechaFin && !esFecha(item.fechaFin)) errores.push(`${donde} tiene una fecha de fin que no es válida (va como AAAA-MM-DD).`);
+        else if (item.fechaFin && item.fechaFin < item.fecha) errores.push(`${donde} termina (${item.fechaFin}) antes de empezar (${item.fecha}).`);
+      }
+    }
     if (path.basename(archivo) === "grupos.json") {
       for (const g of datos.grupos ?? []) {
-        if (g.tipo === "cbc" && !Number.isInteger(g.anio)) errores.push(`content/grupos.json: el grupo de CBC "${g.nombre}" no dice de qué año es (falta "anio", por ejemplo 2026).`);
-        if (!/^https:\/\/chat\.whatsapp\.com\//.test(g.link ?? "")) errores.push(`content/grupos.json: el link de "${g.nombre}" no es un link de WhatsApp.`);
+        const donde = `content/grupos.json: el grupo "${g.nombre}"`;
+        if (!["carrera", "cbc", "año", "materia"].includes(g.tipo)) errores.push(`${donde} tiene un tipo que no existe ("${g.tipo}").`);
+        if (g.tipo === "cbc" && !Number.isInteger(g.anio)) errores.push(`${donde} es de CBC y no dice de qué año es (falta "anio", por ejemplo 2026).`);
+        if (["carrera", "año", "materia"].includes(g.tipo) && !carreras.has(g.carrera)) errores.push(`${donde} no tiene una carrera válida ("${g.carrera ?? ""}").`);
+        if (g.tipo === "materia" && !String(g.materia ?? "").trim()) errores.push(`${donde} es por materia y no dice qué materia es (falta "materia").`);
+        if (g.tipo === "año" && !(Number(g.anioCursada) >= 1 && Number(g.anioCursada) <= 6)) errores.push(`${donde} es por año y no dice de qué año de la carrera es (falta "anioCursada", de 1 a 6).`);
+        if (!/^https:\/\/chat\.whatsapp\.com\//.test(g.link ?? "")) errores.push(`${donde} no tiene un link de WhatsApp.`);
       }
     }
     if (archivo.includes(`${path.sep}correlativas${path.sep}`)) {

@@ -163,6 +163,16 @@
   color: var(--naranja);
   margin-bottom: 0.2rem;
 }
+/* algo que dura varios días: el día en que empieza, grande, y abajo hasta cuándo */
+.agenda-dia small {
+  display: block;
+  margin-top: 0.3rem;
+  padding-top: 0.3rem;
+  border-top: 2px solid var(--naranja);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
 .agenda-cuerpo {
   display: grid;
   gap: 0.35rem;

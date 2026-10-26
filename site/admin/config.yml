@@ -36,7 +36,7 @@ collections:
         format: json
         description: Las tarjetas de la página Actividades. Las que ya pasaron se muestran solas al final, como "ya pasó".
         fields:
-          - { name: _ayuda, widget: hidden, default: "Una tarjeta por actividad. 'fecha' va como AAAA-MM-DD. 'hora' y 'inscripcion' son opcionales. Las que ya pasaron se muestran al final como 'ya pasó'." }
+          - { name: _ayuda, widget: hidden, default: "Una tarjeta por actividad. 'fecha' va como AAAA-MM-DD. Si dura varios días, 'fecha' es el primero y 'fechaFin' el último (por ejemplo del 2026-11-11 al 2026-11-15). 'hora', 'fechaFin' e 'inscripcion' son opcionales. Las que ya pasaron se muestran al final como 'ya pasó'." }
           - name: actividades
             label: Actividades
             label_singular: actividad
@@ -44,7 +44,8 @@ collections:
             summary: "{{fields.fecha}} · {{fields.titulo}}"
             fields:
               - { name: titulo, label: Título, widget: string }
-              - { name: fecha, label: Fecha, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true }
+              - { name: fecha, label: "Fecha (o primer día)", widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true }
+              - { name: fechaFin, label: "Hasta (opcional: si dura varios días)", widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true, required: false, hint: "Por ejemplo, del 11/11 al 15/11: en Fecha va el 11 y acá el 15. Si es un solo día, dejalo vacío." }
               - { name: hora, label: "Hora (por ejemplo 18:00)", widget: string, required: false, pattern: ['^([01]\d|2[0-3]):[0-5]\d$', "Escribila como 18:00"] }
               - { name: lugar, label: Lugar, widget: string, required: false }
               - { name: descripcion, label: Descripción, widget: text, required: false }
@@ -57,7 +58,7 @@ collections:
         format: json
         description: El Google Calendar que se muestra en la página y las fechas clave de abajo.
         fields:
-          - { name: _ayuda, widget: hidden, default: "Pegá en 'calendarioId' el ID del Google Calendar público (Configuración del calendario → Integrar el calendario → ID del calendario; suele terminar en @group.calendar.google.com). El calendario tiene que ser público. Mientras diga EJEMPLO, la página muestra un aviso en lugar del calendario." }
+          - { name: _ayuda, widget: hidden, default: "Pegá en 'calendarioId' el ID del Google Calendar público (Configuración del calendario → Integrar el calendario → ID del calendario; suele terminar en @group.calendar.google.com). El calendario tiene que ser público. Mientras diga EJEMPLO, la página muestra un aviso en lugar del calendario. Cada fecha clave tiene 'fecha' y, si dura varios días, 'fechaFin' (el último día)." }
           - { name: calendarioId, label: "ID del Google Calendar", widget: string, hint: "En Google Calendar: Configuración del calendario → Integrar el calendario → ID del calendario. El calendario tiene que ser público." }
           - { name: zonaHoraria, widget: hidden, default: America/Argentina/Buenos_Aires }
           - name: fechasClave
@@ -66,15 +67,16 @@ collections:
             widget: list
             summary: "{{fields.fecha}} · {{fields.texto}}"
             fields:
-              - { name: fecha, label: Fecha, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true }
-              - { name: texto, label: Qué pasa ese día, widget: string }
+              - { name: fecha, label: "Fecha (o primer día)", widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true }
+              - { name: fechaFin, label: "Hasta (opcional: si dura varios días)", widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true, required: false, hint: "Por ejemplo, del 11/11 al 15/11: en Fecha va el 11 y acá el 15. Si es un solo día, dejalo vacío." }
+              - { name: texto, label: "Qué pasa (por ejemplo: Inscripción a finales)", widget: string }
 
       # ------------------------------------------------------------ grupos
       - name: grupos
         label: Grupos de WhatsApp
         file: content/grupos.json
         format: json
-        description: Los grupos de la página Grupos.
+        description: "Los grupos de la página Grupos. Para cargar muchos de una desde un Excel, abrí /admin/importar.html (con la misma sesión)."
         fields:
           - { name: _ayuda, widget: hidden, default: "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). En los de CBC poné en 'anio' de qué año es el grupo (por ejemplo 2026). Los links empiezan con https://chat.whatsapp.com/." }
           - name: grupos
@@ -93,7 +95,20 @@ collections:
                   - { label: CBC, value: cbc }
                   - { label: Por año, value: año }
                   - { label: Por materia, value: materia }
-              - { name: anio, label: "Año (solo grupos de CBC)", widget: number, value_type: int, required: false, min: 2020, max: 2100, hint: "De qué año es el grupo de CBC, por ejemplo 2026. Es obligatorio en los de CBC." }
+              - { name: anio, label: "Año del CBC (solo grupos de CBC)", widget: number, value_type: int, required: false, min: 2020, max: 2100, hint: "De qué año es el grupo de CBC, por ejemplo 2026. Es obligatorio en los de CBC." }
+              - { name: materia, label: "Materia (solo grupos por materia)", widget: string, required: false, hint: "Por ejemplo: Morfología 1. Es obligatoria en los grupos por materia." }
+              - name: anioCursada
+                label: "Año de la carrera (solo grupos por año)"
+                widget: select
+                required: false
+                hint: Es obligatorio en los grupos por año.
+                options:
+                  - { label: "1º año", value: 1 }
+                  - { label: "2º año", value: 2 }
+                  - { label: "3º año", value: 3 }
+                  - { label: "4º año", value: 4 }
+                  - { label: "5º año", value: 5 }
+                  - { label: "6º año", value: 6 }
               - name: carrera
                 label: Carrera
                 widget: select

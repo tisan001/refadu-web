@@ -1,0 +1,134 @@
+/* Importar grupos: página del editor, con la marca del sitio */
+
+.importar {
+  padding-block: 2rem 3rem;
+}
+.importar .caja {
+  --palabra: 7.5;
+}
+.importar .bajada {
+  margin: 0.75rem 0 0;
+  font-size: 1.3rem;
+  max-width: 40rem;
+}
+.importar .paso {
+  padding-top: 2rem;
+}
+.importar .paso > p {
+  margin: 0 0 0.75rem;
+  max-width: 44rem;
+}
+
+.zona-importar {
+  display: grid;
+  justify-items: center;
+  gap: 0.3rem;
+  padding: 2rem 1rem;
+  border: 4px dashed var(--negro);
+  border-radius: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+}
+.zona-importar:hover,
+.zona-importar.arrastrando {
+  background: var(--naranja);
+}
+.zona-importar:focus-within {
+  outline: 3px solid var(--negro);
+  outline-offset: 4px;
+}
+.zona-importar input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.zona-importar .subtitulo {
+  font-size: 1.4rem;
+}
+
+.importar-error {
+  margin: 1rem 0 0;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  background: var(--negro);
+  color: var(--beige);
+  font-weight: 700;
+}
+.importar-ok {
+  margin: 1rem 0 0;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  background: var(--violeta);
+  color: var(--beige);
+  font-weight: 700;
+}
+.importar-nota {
+  margin: 0.5rem 0 0;
+  max-width: 44rem;
+}
+
+.tabla-envoltura {
+  overflow-x: auto;
+  border: 3px solid var(--negro);
+  border-radius: 1.2rem;
+  margin-block: 1rem;
+}
+.tabla-importar {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.05rem;
+}
+.tabla-importar th,
+.tabla-importar td {
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 2px solid var(--negro);
+}
+.tabla-importar th {
+  background: var(--negro);
+  color: var(--beige);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+}
+.tabla-importar tr.con-error td:nth-child(2) {
+  font-weight: 700;
+  color: var(--violeta);
+}
+.tabla-importar tr.con-error {
+  /* rayado en violeta claro de la paleta, para marcar la fila sin depender solo del color del texto */
+  background: repeating-linear-gradient(135deg, transparent 0 10px, var(--violeta-claro) 10px 11px);
+}
+.tabla-importar tr.repetida {
+  color: var(--violeta-claro);
+}
+.tabla-importar tr.lista td:nth-child(2) {
+  font-weight: 700;
+}
+.tabla-importar .link {
+  word-break: break-all;
+  min-width: 14rem;
+}
+
+.importar #modo {
+  margin: 1rem 0;
+}
+.importar #modo legend {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.importar #modo .chip input {
+  accent-color: var(--naranja);
+}
+.importar #modo .chip:has(input:checked) {
+  background: var(--negro);
+  color: var(--beige);
+}
+.importar-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}

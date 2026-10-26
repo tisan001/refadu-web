@@ -1,15 +1,18 @@
-// Actividades: las próximas agrupadas por mes (con atajos a cada mes si hay varios)
+// Actividades: las próximas (y las que están en curso) agrupadas por mes, con atajos a cada mes si hay varios,
 // y las que ya pasaron plegadas al final, de la más reciente a la más vieja.
 
 (async () => {
-  const { t, fecha, diasHasta } = ReFADU;
+  const { t, fecha, estado } = ReFADU;
   const proximas = document.getElementById("proximas");
   const datos = await ReFADU.contenido("actividades.json");
   if (!datos) return ReFADU.errorDeCarga(proximas, "actividades.json");
 
   const todas = [...datos.actividades].sort((a, b) => a.fecha.localeCompare(b.fecha));
-  const futuras = todas.filter((a) => diasHasta(a.fecha) >= 0);
-  const pasadas = todas.filter((a) => diasHasta(a.fecha) < 0).reverse();
+  // una actividad de varios días sigue en "Próximas" hasta su último día
+  const futuras = todas.filter((a) => estado(a) !== "pasada");
+  const pasadas = todas.filter((a) => estado(a) === "pasada").reverse();
+  const hoy = new Date();
+  const mesActual = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, "0")}`;
   const colores = ["naranja", "violeta", "beige"];
 
   if (!futuras.length) {
@@ -18,7 +21,8 @@
     // un grupo por mes ("noviembre 2026"); el año solo se muestra si no es el actual
     const meses = new Map();
     for (const a of futuras) {
-      const clave = a.fecha.slice(0, 7);
+      // si empezó antes de este mes y sigue en curso, va en el mes actual
+      const clave = a.fecha.slice(0, 7) < mesActual ? mesActual : a.fecha.slice(0, 7);
       if (!meses.has(clave)) meses.set(clave, []);
       meses.get(clave).push(a);
     }

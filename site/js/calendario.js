@@ -30,13 +30,17 @@
       <p><a class="boton vacio" href="https://calendar.google.com/calendar/r?cid=${t(encodeURIComponent(id))}" target="_blank" rel="noopener">Sumalo a tu Google Calendar <span class="flecha" aria-hidden="true">→</span></a></p>`;
   }
 
-  const fechas = (datos.fechasClave ?? []).filter((f) => ReFADU.diasHasta(f.fecha) >= 0).sort((a, b) => a.fecha.localeCompare(b.fecha));
+  // una fecha clave puede durar varios días (fecha + fechaFin): se ve hasta el último
+  const fechas = (datos.fechasClave ?? []).filter((f) => ReFADU.estado(f) !== "pasada").sort((a, b) => a.fecha.localeCompare(b.fecha));
+  const corta = (iso) => ReFADU.fecha(iso, { day: "numeric", month: "short" }).replace(".", "");
   if (fechas.length) {
     document.getElementById("fechas").innerHTML = fechas
-      .map(
-        (f) => `<li><span class="dia">${t(ReFADU.fecha(f.fecha, { day: "numeric", month: "short" }))}</span>
-          <span>${t(f.texto)}</span></li>`,
-      )
+      .map((f) => {
+        const hasta = ReFADU.fin(f);
+        const dia = hasta === f.fecha ? corta(f.fecha) : `${corta(f.fecha)} al ${corta(hasta)}`;
+        const enCurso = ReFADU.estado(f) === "en-curso" ? ' <span class="etiqueta">En curso</span>' : "";
+        return `<li><span class="dia">${t(dia)}</span><span>${t(f.texto)}${enCurso}</span></li>`;
+      })
       .join("");
     document.getElementById("bloque-fechas").hidden = false;
   }
