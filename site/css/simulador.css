@@ -28,8 +28,11 @@
   border-block: 3px solid var(--negro);
   overflow: hidden;
 }
+.sim-cabeza > .contenedor {
+  container-type: inline-size; /* la caja con el nombre de la carrera se mide contra este ancho */
+}
 .sim-caja {
-  font-size: clamp(1.35rem, 6.2vw, 3.2rem);
+  --caja-max: 3.2rem;
   line-height: 0.95;
 }
 .sim-fuente {

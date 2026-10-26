@@ -1,4 +1,5 @@
-// Recomendaciones: por carrera, el formulario embebido, la carpeta de Drive y los PDF de cada cuatrimestre.
+// Recomendaciones: por carrera, dos opciones con el mismo peso (ver las recomendaciones del
+// cuatrimestre y dar la tuya) y el formulario embebido. Sin link todavía, dice "Próximamente".
 
 (async () => {
   const { t, link, esEjemplo } = ReFADU;
@@ -39,31 +40,43 @@
     const c = datos.carreras.find((x) => x.carrera === id);
     const form = urlEmbebida(c.formulario);
     const cuatrimestre = datos.cuatrimestreActual ?? "este cuatrimestre";
-    elegida.innerHTML = `<div class="carrera-elegida">
-        <div class="formulario">
-          <div class="formulario-cabeza sobre-violeta">
-            <h2>Contá tu experiencia</h2>
-            <p>Completá el formulario de ${t(c.nombre)}: las respuestas se suman a las recomendaciones de la carrera.</p>
-          </div>
-          ${
-            form
-              ? `<iframe src="${t(form)}" title="Formulario de recomendaciones de ${t(c.nombre)}" loading="lazy">Cargando…</iframe>`
-              : `<p class="vacio-estado">Todavía no hay formulario para esta carrera.</p>`
-          }
-        </div>
-        <aside class="tarjeta oscura">
+    // dos opciones con el mismo peso: ver las recomendaciones y dar la tuya
+    const ver = c.recomendaciones
+      ? `<p>Las recomendaciones de ${t(c.nombre)} del <strong>${t(cuatrimestre)}</strong>, armadas con lo que respondieron en el formulario.</p>
+         <div class="acciones">
+           <a class="boton" href="${t(link(c.recomendaciones))}" target="_blank" rel="noopener">Ver las recomendaciones <span class="flecha" aria-hidden="true">→</span></a>
+           ${esEjemplo(c.recomendaciones) ? '<span class="etiqueta">Link de ejemplo</span>' : ""}
+         </div>`
+      : `<p>Estamos juntando las respuestas de ${t(c.nombre)}. Apenas estén las recomendaciones, las vas a encontrar acá.</p>
+         <div class="acciones"><span class="boton proximamente" aria-disabled="true">Próximamente</span></div>`;
+    elegida.innerHTML = `
+      <div class="reco-opciones">
+        <article class="reco-opcion sobre-naranja">
+          <span class="etiqueta">${t(cuatrimestre)}</span>
+          <h2 class="titulo">Mirá</h2>
+          <p class="reco-bajada">Qué cátedra elegir, contado por quienes ya cursaron.</p>
+          ${ver}
+        </article>
+        <article class="reco-opcion sobre-violeta">
           <span class="etiqueta">${t(c.nombre)}</span>
-          <h2>Lo que ya se recomendó</h2>
-          ${
-            c.recomendaciones
-              ? `<p>Las recomendaciones del <strong>${t(cuatrimestre)}</strong>, armadas con lo que respondieron en el formulario.</p>
-                 <a class="boton naranja recomendaciones-link" href="${t(link(c.recomendaciones))}" target="_blank" rel="noopener">
-                   Clickeá acá para ver las recomendaciones del ${t(cuatrimestre)} <span class="flecha" aria-hidden="true">→</span></a>
-                 ${esEjemplo(c.recomendaciones) ? '<span class="etiqueta">Link de ejemplo</span>' : ""}`
-              : `<p>Todavía no publicamos las recomendaciones del ${t(cuatrimestre)}. ¡Completá el formulario así salen antes!</p>`
-          }
+          <h2 class="titulo">Contá</h2>
+          <p class="reco-bajada">Tu experiencia le sirve al que viene atrás.</p>
+          <p>Completá el formulario de ${t(c.nombre)}: con las respuestas armamos las recomendaciones.</p>
+          <div class="acciones">
+            ${form ? `<a class="boton naranja" href="#formulario">Completar el formulario <span class="flecha" aria-hidden="true">↓</span></a>` : ""}
+          </div>
+        </article>
+      </div>
+      <div class="formulario" id="formulario">
+        <div class="formulario-cabeza sobre-violeta">
+          <h2>Formulario de ${t(c.nombre)}</h2>
           ${form ? `<p><a href="${t(link(c.formulario))}" target="_blank" rel="noopener">¿No se ve el formulario? Abrilo aparte.</a></p>` : ""}
-        </aside>
+        </div>
+        ${
+          form
+            ? `<iframe src="${t(form)}" title="Formulario de recomendaciones de ${t(c.nombre)}" loading="lazy">Cargando…</iframe>`
+            : `<p class="vacio-estado">Todavía no hay formulario para esta carrera.</p>`
+        }
       </div>`;
   }
   elegir(actual);

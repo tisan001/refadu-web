@@ -47,6 +47,32 @@
   font-size: 1rem;
 }
 
+/* actividades agrupadas por mes */
+.meses {
+  margin-bottom: 1.5rem;
+}
+.meses .chip {
+  text-decoration: none;
+}
+.mes + .mes {
+  margin-top: 2.25rem;
+}
+.mes-titulo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--negro);
+  font-size: 1.6rem;
+  scroll-margin-top: 5rem;
+}
+.mes-cuenta {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
 .tarjeta.pasada {
   border-style: dashed;
 }
@@ -56,16 +82,64 @@
   text-decoration-thickness: 2px;
 }
 
-/* recomendaciones */
-.carrera-elegida {
+/* recomendaciones: "Mirá" y "Contá" con el mismo peso, y el formulario abajo */
+.reco-opciones {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
 }
-@media (min-width: 60rem) {
-  .carrera-elegida {
-    grid-template-columns: 1fr 20rem;
-    align-items: start;
+@media (min-width: 48rem) {
+  .reco-opciones {
+    grid-template-columns: 1fr 1fr;
   }
+}
+.reco-opcion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.4rem 1.4rem 1.5rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.6rem;
+}
+.reco-opcion .titulo {
+  font-size: clamp(2.2rem, 9vw, 3.4rem);
+  line-height: 1;
+  margin: 0.2rem 0 0;
+}
+.sobre-naranja.reco-opcion .titulo {
+  color: var(--violeta);
+}
+.sobre-violeta.reco-opcion .titulo {
+  color: var(--naranja);
+}
+.reco-bajada {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.reco-opcion p {
+  margin: 0;
+}
+.reco-opcion .acciones {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.boton.proximamente {
+  background: transparent;
+  color: var(--negro);
+  border-style: dashed;
+  cursor: default;
+}
+.boton.proximamente:hover {
+  background: transparent;
 }
 .formulario {
   border: 3px solid var(--negro);
@@ -89,14 +163,6 @@
   height: 1500px;
   border: 0;
   background: var(--beige);
-}
-
-/* el botón al PDF del cuatrimestre: texto largo, que pueda ir en dos líneas */
-.recomendaciones-link {
-  justify-content: space-between;
-  text-align: left;
-  line-height: 1.15;
-  padding-block: 0.8rem 0.7rem;
 }
 
 .lista-links {

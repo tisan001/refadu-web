@@ -336,6 +336,7 @@
         }
       </div>`;
 
+    ReFADU.ajustarCajas(app);
     if (foco) app.querySelector(`[data-foco="${CSS.escape(foco)}"]`)?.focus();
   }
 

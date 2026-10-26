@@ -1,16 +1,13 @@
 {
-  "_ayuda": "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). Los links son DE EJEMPLO: reemplazalos por los reales (empiezan con https://chat.whatsapp.com/).",
+  "_ayuda": "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). En los de CBC poné en 'anio' de qué año es el grupo (por ejemplo 2026). Los links empiezan con https://chat.whatsapp.com/.",
   "grupos": [
-    { "nombre": "Arquitectura · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "arquitectura", "link": "https://chat.whatsapp.com/EJEMPLO-ARQUITECTURA" },
-    { "nombre": "Diseño Gráfico · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "grafico", "link": "https://chat.whatsapp.com/EJEMPLO-GRAFICO" },
-    { "nombre": "Diseño Industrial · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "industrial", "link": "https://chat.whatsapp.com/EJEMPLO-INDUSTRIAL" },
-    { "nombre": "Diseño de Indumentaria · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "indumentaria", "link": "https://chat.whatsapp.com/EJEMPLO-INDUMENTARIA" },
-    { "nombre": "Diseño Textil · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "textil", "link": "https://chat.whatsapp.com/EJEMPLO-TEXTIL" },
-    { "nombre": "Imagen y Sonido · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "imagen-y-sonido", "link": "https://chat.whatsapp.com/EJEMPLO-IMAGEN-Y-SONIDO" },
-    { "nombre": "Paisaje · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "paisaje", "link": "https://chat.whatsapp.com/EJEMPLO-PAISAJE" },
-    { "nombre": "CBC FADU · Ciudad Universitaria", "descripcion": "Para quienes cursan el CBC en Ciudad: horarios, sedes y cómo es la cursada.", "tipo": "cbc", "carrera": "", "link": "https://chat.whatsapp.com/EJEMPLO-CBC-CIUDAD" },
-    { "nombre": "CBC FADU · otras sedes", "descripcion": "Para quienes cursan el CBC en otras sedes.", "tipo": "cbc", "carrera": "", "link": "https://chat.whatsapp.com/EJEMPLO-CBC-SEDES" },
-    { "nombre": "Arquitectura · 1er año", "descripcion": "Ejemplo de grupo por año. Borralo si no existe.", "tipo": "año", "carrera": "arquitectura", "link": "https://chat.whatsapp.com/EJEMPLO-ARQ-1" },
-    { "nombre": "Morfología 1 · Gráfico", "descripcion": "Ejemplo de grupo por materia. Borralo si no existe.", "tipo": "materia", "carrera": "grafico", "link": "https://chat.whatsapp.com/EJEMPLO-DG-MORFO1" }
+    { "nombre": "Arquitectura · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "arquitectura", "link": "https://chat.whatsapp.com/KeXbXF3RVE5DQJ6Rpu8ocZ" },
+    { "nombre": "Diseño Gráfico · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "grafico", "link": "https://chat.whatsapp.com/GTSFWSsPunz5xAYcrLzpw8" },
+    { "nombre": "Diseño Industrial · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "industrial", "link": "https://chat.whatsapp.com/FnZo01ZfsE3EouYJf0NaU2" },
+    { "nombre": "Diseño de Indumentaria · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "indumentaria", "link": "https://chat.whatsapp.com/H0ofLv3G57YF2KaN6XJtG2" },
+    { "nombre": "Diseño Textil · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "textil", "link": "https://chat.whatsapp.com/H0ofLv3G57YF2KaN6XJtG2" },
+    { "nombre": "Imagen y Sonido · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "imagen-y-sonido", "link": "https://chat.whatsapp.com/HDECcnIkLHX8srjkOtEAX3" },
+    { "nombre": "Paisaje · general", "descripcion": "El grupo de toda la carrera: avisos, dudas y data útil.", "tipo": "carrera", "carrera": "paisaje", "link": "https://chat.whatsapp.com/ICI9j7NAtsZ4qSfJa6Fm0K" },
+    { "nombre": "CBC 2026", "descripcion": "Para quienes cursan el CBC en 2026: sedes, horarios, materias y cómo es la cursada.", "tipo": "cbc", "anio": 2026, "carrera": "", "link": "https://chat.whatsapp.com/JuoKeaBqILcHEaneBRW1rM" }
   ]
 }

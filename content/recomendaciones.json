@@ -1,48 +1,48 @@
 {
-  "_ayuda": "Arriba va el cuatrimestre de las recomendaciones que están publicadas (se muestra en todas las carreras). En cada carrera: \"formulario\" es el link \"Para compartir\" del Google Form (termina en /viewform) y \"recomendaciones\" es el link al PDF o carpeta con las recomendaciones de ese cuatrimestre. Cuando salgan las nuevas, cambiá el cuatrimestre y los links. Los links que dicen EJEMPLO son de mentira: reemplazalos.",
+  "_ayuda": "Arriba va el cuatrimestre de las recomendaciones (se muestra en todas las carreras). En cada carrera: \"formulario\" es el link \"Para compartir\" del Google Form (termina en /viewform) y \"recomendaciones\" es el link al PDF o carpeta con las recomendaciones de ese cuatrimestre. Mientras se juntan las respuestas, dejá \"recomendaciones\" vacío: la página muestra \"Próximamente\". Cuando salgan, pegá el link.",
   "cuatrimestreActual": "2do cuatrimestre 2026",
   "carreras": [
     {
       "carrera": "arquitectura",
       "nombre": "Arquitectura",
       "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSf37ZXEV4eYuU7rserMgxMAuxLxlbdfJj6l79bYlH-AODeMqg/viewform",
-      "recomendaciones": "https://drive.google.com/file/d/EJEMPLO-ARQUITECTURA-2026-2"
+      "recomendaciones": ""
     },
     {
       "carrera": "grafico",
       "nombre": "Diseño Gráfico",
       "formulario": "https://docs.google.com/forms/d/e/1FAIpQLScGbrS7VE_GaXMBSdb-Xq0r-29mbLhBNGJZKSBMaXfZLpqjOw/viewform",
-      "recomendaciones": "https://drive.google.com/file/d/EJEMPLO-GRAFICO-2026-2"
+      "recomendaciones": ""
     },
     {
       "carrera": "industrial",
       "nombre": "Diseño Industrial",
       "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSdvYnuOWrM_EHoO3wW0cN-etEKsYLI2T_1KK_YI3llyxognvQ/viewform",
-      "recomendaciones": "https://drive.google.com/file/d/EJEMPLO-INDUSTRIAL-2026-2"
+      "recomendaciones": ""
     },
     {
       "carrera": "indumentaria",
       "nombre": "Diseño de Indumentaria",
       "formulario": "https://docs.google.com/forms/d/e/1FAIpQLScgBig8KNn0RxNF_4sd0lAavXfvPlb_fZHC-fKeXo4XwmSJSQ/viewform",
-      "recomendaciones": "https://drive.google.com/file/d/EJEMPLO-INDUMENTARIA-2026-2"
+      "recomendaciones": ""
     },
     {
       "carrera": "textil",
       "nombre": "Diseño Textil",
       "formulario": "https://docs.google.com/forms/d/e/1FAIpQLScpjJZEHogrcu2OLgJ1MxESq3wBWYfFEKSzSYWskjMLqpuCUQ/viewform",
-      "recomendaciones": "https://drive.google.com/file/d/EJEMPLO-TEXTIL-2026-2"
+      "recomendaciones": ""
     },
     {
       "carrera": "imagen-y-sonido",
       "nombre": "Diseño de Imagen y Sonido",
       "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSckxambIP8u7mjHBuai5JFa93qv5aF8McZb5zWmMGNWJdfUsw/viewform",
-      "recomendaciones": "https://drive.google.com/file/d/EJEMPLO-IMAGEN-Y-SONIDO-2026-2"
+      "recomendaciones": ""
     },
     {
       "carrera": "paisaje",
       "nombre": "Lic. en Planificación y Diseño del Paisaje",
       "formulario": "https://docs.google.com/forms/d/e/1FAIpQLSdDHjZfTE7hxVDoBmZgZ9mhYRlgAjE8hvveYZ-GyRnaMVYFmw/viewform",
-      "recomendaciones": "https://drive.google.com/file/d/EJEMPLO-PAISAJE-2026-2"
+      "recomendaciones": ""
     }
   ]
 }

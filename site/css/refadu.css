@@ -95,6 +95,11 @@ b {
   font-weight: 700;
 }
 
+/* rutas de archivo largas (content/calendario.json): que se puedan partir en el celu */
+code {
+  overflow-wrap: anywhere;
+}
+
 h1,
 h2,
 h3 {
@@ -273,6 +278,7 @@ h3 {
 .menu.abierto ul {
   display: grid;
   gap: 0.25rem;
+  container-type: inline-size; /* los links se achican según el ancho del menú */
 }
 .menu.abierto a {
   display: flex;
@@ -283,7 +289,9 @@ h3 {
   font-family: var(--titulo);
   font-variation-settings: "YEAR" 1979;
   text-transform: uppercase;
-  font-size: clamp(1.3rem, 6.5vw, 2rem);
+  /* "RECOMENDACIONES", el link más largo, mide 14,6 veces el cuerpo en Climate Crisis (más la
+     estrella de la página actual): todos los links usan el tamaño con el que entra ese. */
+  font-size: clamp(1rem, calc(100cqi / 16), 2rem);
   padding: 0.6rem 0;
   border-bottom: 2px solid var(--violeta-claro);
 }
@@ -407,8 +415,12 @@ body.menu-abierto {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  font-size: clamp(1.6rem, 7.5vw, 3.6rem);
-  overflow-wrap: anywhere;
+  /* Climate Crisis es tan ancha que una palabra larga no entra en el celu. El tamaño sale del ancho
+     disponible (100cqi) dividido por lo que mide la palabra más larga del título (--palabra, en em,
+     lo calcula comun.js), más el relleno de la caja (1,1em) y el volumen de atrás (0,6rem).
+     Sin JS se usa 11,5em, lo que mide "CORRELATIVAS": entra siempre, aunque quede más chico. */
+  font-size: clamp(1rem, calc((100cqi - 0.6rem - 6px) / (var(--palabra, 11.5) + 1.1)), var(--caja-max, 3.6rem));
+  overflow-wrap: normal;
   hyphens: manual;
 }
 .caja::before {
@@ -432,6 +444,8 @@ body.menu-abierto {
 .portada-titulo {
   position: relative;
   z-index: 0;
+  container-type: inline-size; /* la caja del título se mide contra este ancho */
+  min-width: 0;
 }
 
 /* ------------------------------------------------------------ títulos de bloque (✦ CBC, ✦ PRIMER AÑO) */
@@ -689,6 +703,7 @@ body.menu-abierto {
 }
 .aviso p {
   margin: 0;
+  min-width: 0;
 }
 .aviso.violeta {
   background: var(--violeta);

@@ -25,10 +25,17 @@ apunta a una materia que no existe.
 
 ## Editor de contenido (`/admin`)
 
-En `/admin/` hay un editor con formularios para **Actividades**, **Calendario académico** y **Grupos de
-WhatsApp** ([Decap CMS](https://decapcms.org)). Cada cambio que se publica desde ahí se guarda como un
-commit en GitHub, y el sitio se actualiza solo en uno o dos minutos. Para sumar otra sección
-(becas, apuntes, recomendaciones), se agrega en `site/admin/config.yml`.
+En `/admin/` hay un editor con formularios ([Decap CMS](https://decapcms.org)) para:
+
+- **Actividades** (con fecha, lugar y link de inscripción)
+- **Calendario académico** (el ID del calendario y las fechas clave)
+- **Grupos de WhatsApp** (en los de CBC, con su año)
+- **Banco de apuntes** (formulario para subir material, y carpetas por carrera y por materia)
+- **Becas**
+- **Recomendaciones** (el cuatrimestre, el formulario y el link a las recomendaciones de cada carrera)
+
+Cada cambio que se publica desde ahí se guarda como un commit en GitHub, y el sitio se actualiza solo en
+uno o dos minutos. Las secciones se configuran en `site/admin/config.yml`.
 
 **En tu compu**, sin login: `npm run editor`, abrí http://localhost:8080/admin/ y entrá. Los cambios se
 guardan directo en `content/`.

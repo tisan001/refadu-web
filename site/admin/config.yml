@@ -76,7 +76,7 @@ collections:
         format: json
         description: Los grupos de la página Grupos.
         fields:
-          - { name: _ayuda, widget: hidden, default: "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). Los links empiezan con https://chat.whatsapp.com/." }
+          - { name: _ayuda, widget: hidden, default: "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). En los de CBC poné en 'anio' de qué año es el grupo (por ejemplo 2026). Los links empiezan con https://chat.whatsapp.com/." }
           - name: grupos
             label: Grupos
             label_singular: grupo
@@ -93,6 +93,7 @@ collections:
                   - { label: CBC, value: cbc }
                   - { label: Por año, value: año }
                   - { label: Por materia, value: materia }
+              - { name: anio, label: "Año (solo grupos de CBC)", widget: number, value_type: int, required: false, min: 2020, max: 2100, hint: "De qué año es el grupo de CBC, por ejemplo 2026. Es obligatorio en los de CBC." }
               - name: carrera
                 label: Carrera
                 widget: select
@@ -108,3 +109,86 @@ collections:
                   - { label: Diseño de Imagen y Sonido, value: imagen-y-sonido }
                   - { label: Paisaje, value: paisaje }
               - { name: link, label: Link de invitación, widget: string, pattern: ['^https://chat\.whatsapp\.com/', "Tiene que ser un link https://chat.whatsapp.com/..."] }
+
+      # ------------------------------------------------------------ apuntes
+      - name: apuntes
+        label: Banco de apuntes
+        file: content/apuntes.json
+        format: json
+        description: El formulario para subir material y, por carrera, la carpeta general de Drive y una carpeta por materia.
+        fields:
+          - { name: _ayuda, widget: hidden, default: "'formularioSubir' es el formulario para que la gente mande material. En cada carrera, 'drive' es la carpeta general y 'materias' tiene una carpeta por materia." }
+          - { name: formularioSubir, label: "Formulario para subir material", widget: string, pattern: ['^https?://', "Tiene que empezar con https://"] }
+          - name: carreras
+            label: Carreras
+            label_singular: carrera
+            widget: list
+            summary: "{{fields.carrera}}"
+            fields:
+              - name: carrera
+                label: Carrera
+                widget: select
+                options: &carreras
+                  - { label: Arquitectura, value: arquitectura }
+                  - { label: Diseño Gráfico, value: grafico }
+                  - { label: Diseño Industrial, value: industrial }
+                  - { label: Diseño de Indumentaria, value: indumentaria }
+                  - { label: Diseño Textil, value: textil }
+                  - { label: Diseño de Imagen y Sonido, value: imagen-y-sonido }
+                  - { label: Paisaje, value: paisaje }
+              - { name: drive, label: "Carpeta general de Drive", widget: string, pattern: ['^https?://', "Tiene que empezar con https://"] }
+              - name: materias
+                label: Materias
+                label_singular: materia
+                widget: list
+                summary: "{{fields.nombre}}"
+                fields:
+                  - { name: nombre, label: Materia, widget: string }
+                  - { name: link, label: "Carpeta de Drive de la materia", widget: string, pattern: ['^https?://', "Tiene que empezar con https://"] }
+
+      # ------------------------------------------------------------ becas
+      - name: becas
+        label: Becas
+        file: content/becas.json
+        format: json
+        description: Las tarjetas de la página Becas. Sin fecha límite, se muestra como "Todo el año".
+        fields:
+          - { name: _ayuda, widget: hidden, default: "Una tarjeta por beca. 'fechaLimite' va como AAAA-MM-DD (dejala vacía si es todo el año). 'requisitos' es una lista de textos cortos." }
+          - name: becas
+            label: Becas
+            label_singular: beca
+            widget: list
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: nombre, label: Nombre, widget: string }
+              - { name: organismo, label: "Quién la da", widget: string, required: false }
+              - { name: descripcion, label: Descripción, widget: text, required: false }
+              - name: requisitos
+                label: Requisitos
+                label_singular: requisito
+                widget: list
+                required: false
+                field: { name: requisito, label: Requisito, widget: string }
+              - { name: fechaLimite, label: "Fecha límite (vacía si es todo el año)", widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, picker_utc: true, required: false }
+              - { name: link, label: "Link para anotarse", widget: string, pattern: ['^https?://', "Tiene que empezar con https://"] }
+
+      # ------------------------------------------------------------ recomendaciones
+      - name: recomendaciones
+        label: Recomendaciones
+        file: content/recomendaciones.json
+        format: json
+        description: El cuatrimestre de las recomendaciones y, por carrera, el formulario y el link a las recomendaciones. Sin link, la página muestra "Próximamente".
+        fields:
+          - { name: _ayuda, widget: hidden, default: "Arriba va el cuatrimestre de las recomendaciones (se muestra en todas las carreras). En cada carrera: 'formulario' es el link 'Para compartir' del Google Form (termina en /viewform) y 'recomendaciones' es el link al PDF o carpeta con las recomendaciones de ese cuatrimestre. Mientras se juntan las respuestas, dejá 'recomendaciones' vacío: la página muestra 'Próximamente'." }
+          - { name: cuatrimestreActual, label: "Cuatrimestre (por ejemplo: 2do cuatrimestre 2026)", widget: string }
+          - name: carreras
+            label: Carreras
+            label_singular: carrera
+            widget: list
+            allow_add: false
+            summary: "{{fields.nombre}}"
+            fields:
+              - { name: carrera, label: Carrera, widget: select, options: *carreras }
+              - { name: nombre, label: "Nombre que se muestra", widget: string }
+              - { name: formulario, label: "Formulario (link 'Para compartir', termina en /viewform)", widget: string, pattern: ['^https://docs\.google\.com/forms/', "Tiene que ser un link de Google Forms"] }
+              - { name: recomendaciones, label: "Link a las recomendaciones (vacío = Próximamente)", widget: string, required: false }

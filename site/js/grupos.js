@@ -13,8 +13,15 @@
   let tipo = "";
   let carrera = "";
 
+  // los de CBC van del año más nuevo al más viejo; el resto, en el orden del archivo
+  const cbc = datos.grupos.filter((g) => g.tipo === "cbc").sort((a, b) => (b.anio ?? 0) - (a.anio ?? 0));
+  let siguienteCbc = 0;
+  datos.grupos = datos.grupos.map((g) => (g.tipo === "cbc" ? cbc[siguienteCbc++] : g));
+
   const filtroTipo = document.getElementById("filtro-tipo");
+  const hayTipo = new Set(datos.grupos.map((g) => g.tipo));
   for (const [valor, texto] of Object.entries(TIPOS)) {
+    if (valor && !hayTipo.has(valor)) continue; // no mostrar filtros que darían vacío
     const boton = document.createElement("button");
     boton.type = "button";
     boton.className = "chip";
@@ -43,7 +50,7 @@
           .map((g) => {
             const nombreCarrera = carreras[g.carrera]?.nombre;
             return `<article class="tarjeta ${COLOR[g.tipo] ?? ""}">
-              <span class="etiqueta">${t(TIPOS[g.tipo] ?? g.tipo)}</span>
+              <span class="etiqueta">${t(g.tipo === "cbc" && g.anio ? `CBC ${g.anio}` : (TIPOS[g.tipo] ?? g.tipo))}</span>
               <h2>${t(g.nombre)}</h2>
               ${nombreCarrera ? `<p class="dato">${t(nombreCarrera)}</p>` : ""}
               <p>${t(g.descripcion)}</p>

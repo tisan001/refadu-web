@@ -27,7 +27,38 @@
   matchMedia("(min-width: 64rem)").addEventListener("change", cerrar);
 })();
 
+/**
+ * Títulos en caja (Climate Crisis): mide la palabra más larga de cada uno y la deja en --palabra,
+ * para que el CSS calcule el tamaño de letra más grande con el que entra sin partir la palabra.
+ */
+async function ajustarCajas(raiz = document) {
+  const cajas = [...raiz.querySelectorAll(".caja")];
+  if (!cajas.length) return;
+  try {
+    await document.fonts.load('100px "Climate Crisis"');
+  } catch {}
+  const regla = document.createElement("span");
+  regla.className = "caja";
+  // sin el max-width de .caja: si no, nunca mediría más que el ancho de la pantalla
+  regla.style.cssText = "position:absolute;visibility:hidden;white-space:nowrap;font-size:100px;padding:0;border:0;margin:0;left:0;top:0;max-width:none;width:auto";
+  document.body.append(regla);
+  for (const caja of cajas) {
+    // cada línea del título (los <span> de bloque) por separado; adentro, palabra por palabra
+    const lineas = caja.querySelectorAll(".linea-alterna").length ? [...caja.childNodes].map((n) => n.textContent) : [caja.textContent];
+    let maximo = 0;
+    for (const palabra of lineas.join(" ").replace(/­/g, "").split(/\s+/).filter(Boolean)) {
+      regla.textContent = palabra;
+      maximo = Math.max(maximo, regla.getBoundingClientRect().width / 100);
+    }
+    if (maximo) caja.style.setProperty("--palabra", maximo.toFixed(2));
+  }
+  regla.remove();
+}
+ajustarCajas();
+
 window.ReFADU = {
+  ajustarCajas,
+
   /** Lee un archivo de content/. Si falla, devuelve null y la página muestra un aviso. */
   async contenido(nombre) {
     try {

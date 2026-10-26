@@ -16,6 +16,7 @@ const TIPOS = {
   ".mjs": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
   ".yml": "text/yaml; charset=utf-8",
+  ".webmanifest": "application/manifest+json",
   ".svg": "image/svg+xml",
   ".webp": "image/webp",
   ".png": "image/png",

@@ -74,6 +74,12 @@ export function verificar() {
   for (const archivo of archivos) {
     const datos = leer(archivo, errores);
     if (!datos) continue;
+    if (path.basename(archivo) === "grupos.json") {
+      for (const g of datos.grupos ?? []) {
+        if (g.tipo === "cbc" && !Number.isInteger(g.anio)) errores.push(`content/grupos.json: el grupo de CBC "${g.nombre}" no dice de qué año es (falta "anio", por ejemplo 2026).`);
+        if (!/^https:\/\/chat\.whatsapp\.com\//.test(g.link ?? "")) errores.push(`content/grupos.json: el link de "${g.nombre}" no es un link de WhatsApp.`);
+      }
+    }
     if (archivo.includes(`${path.sep}correlativas${path.sep}`)) {
       if (!carreras.has(datos.carrera)) errores.push(`${path.relative(RAIZ, archivo)}: la carrera "${datos.carrera}" no está en carreras.json.`);
       verificarCorrelativas(archivo, datos, errores);

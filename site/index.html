@@ -6,7 +6,10 @@
     <title>ReFADU · todo para tu cursada en la FADU</title>
     <meta name="description" content="Grupos de WhatsApp, recomendaciones, actividades, becas, apuntes, simulador de correlativas y compresor de PDF para estudiantes de FADU y del CBC." />
     <meta name="theme-color" content="#FF6E23" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/logos/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="/css/refadu.css" />
     <link rel="stylesheet" href="/css/inicio.css" />
   </head>
@@ -27,6 +30,17 @@
         </div>
       </section>
       <div class="franja" aria-hidden="true"></div>
+
+      <section class="seccion sobre-violeta" aria-labelledby="titulo-proximas" id="proximas" hidden>
+        <div class="contenedor">
+          <h2 class="bloque-titulo" id="titulo-proximas"><span class="estrella" aria-hidden="true"></span>Se viene</h2>
+          <ol class="agenda" id="lista-proximas"></ol>
+          <p class="inicio-mas">
+            <a class="boton vacio" href="/actividades">Todas las actividades <span class="flecha" aria-hidden="true">→</span></a>
+            <a class="boton vacio" href="/calendario">Calendario académico <span class="flecha" aria-hidden="true">→</span></a>
+          </p>
+        </div>
+      </section>
 
       <section class="seccion" aria-labelledby="titulo-accesos">
         <div class="contenedor">
@@ -91,17 +105,8 @@
           </ul>
         </div>
       </section>
-
-      <section class="seccion sobre-violeta" aria-labelledby="titulo-proximas" id="proximas" hidden>
-        <div class="contenedor">
-          <h2 class="bloque-titulo" id="titulo-proximas"><span class="estrella" aria-hidden="true"></span>Se viene</h2>
-          <div class="grilla" id="lista-proximas"></div>
-          <p class="inicio-mas"><a class="boton vacio" href="/actividades">Ver todas las actividades <span class="flecha" aria-hidden="true">→</span></a></p>
-        </div>
-      </section>
     </main>
     <!--#pie-->
-    <script src="/js/actividades-tarjeta.js" defer></script>
     <script src="/js/inicio.js" defer></script>
   </body>
 </html>

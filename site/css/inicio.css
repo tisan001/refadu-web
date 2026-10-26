@@ -109,4 +109,88 @@
 
 .inicio-mas {
   margin: 1.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* "Se viene": actividades y fechas clave en una sola agenda, en orden de fecha */
+.agenda {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+@media (min-width: 60rem) {
+  .agenda {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.agenda-item {
+  display: grid;
+  grid-template-columns: 4.75rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 1.1rem 1.1rem;
+  border: 3px solid var(--negro);
+  border-radius: 1.4rem;
+  background: var(--beige);
+  color: var(--negro);
+}
+.agenda-item.fecha-clave {
+  background: var(--naranja);
+}
+.agenda-dia {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  padding: 0.5rem 0.3rem 0.45rem;
+  border-radius: 1rem;
+  background: var(--negro);
+  color: var(--beige);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1rem;
+  line-height: 1;
+}
+.agenda-dia span {
+  font-family: var(--titulo);
+  font-variation-settings: "YEAR" 1979;
+  font-weight: 400;
+  font-size: 1.9rem;
+  color: var(--naranja);
+  margin-bottom: 0.2rem;
+}
+.agenda-cuerpo {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.agenda-cuerpo h3 {
+  font-size: 1.4rem;
+  line-height: 1.05;
+}
+.agenda-tipo,
+.agenda-acciones {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+.agenda-item.fecha-clave .etiqueta {
+  background: var(--negro);
+  color: var(--beige);
+}
+.agenda-datos {
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+.agenda-datos:empty {
+  display: none;
 }

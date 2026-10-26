@@ -6,7 +6,10 @@
     <title>Actividades · ReFADU</title>
     <meta name="description" content="Charlas, talleres y juntadas de ReFADU: fecha, lugar e inscripción." />
     <meta name="theme-color" content="#FF6E23" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/assets/logos/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/logos/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="/css/refadu.css" />
     <link rel="stylesheet" href="/css/secciones.css" />
   </head>
@@ -27,13 +30,18 @@
       <section class="seccion" aria-labelledby="titulo-proximas">
         <div class="contenedor">
           <h2 class="bloque-titulo" id="titulo-proximas"><span class="estrella" aria-hidden="true"></span>Próximas</h2>
-          <div class="grilla" id="proximas"></div>
+          <nav class="meses chips" id="meses" aria-label="Ir a un mes" hidden></nav>
+          <div id="proximas"></div>
         </div>
       </section>
-      <section class="seccion" aria-labelledby="titulo-pasadas" id="bloque-pasadas" hidden>
+      <section class="seccion" id="bloque-pasadas" hidden>
         <div class="contenedor">
-          <h2 class="bloque-titulo" id="titulo-pasadas"><span class="estrella" aria-hidden="true"></span>Ya pasaron</h2>
-          <div class="grilla" id="pasadas"></div>
+          <details class="desplegable">
+            <summary id="titulo-pasadas">Ver las que ya pasaron</summary>
+            <div class="desplegable-cuerpo">
+              <div class="grilla" id="pasadas"></div>
+            </div>
+          </details>
         </div>
       </section>
     </main>
