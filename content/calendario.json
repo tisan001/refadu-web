@@ -1,6 +1,6 @@
 {
   "_ayuda": "Pegá en 'calendarioId' el ID del Google Calendar público (Configuración del calendario → Integrar el calendario → ID del calendario; suele terminar en @group.calendar.google.com). El calendario tiene que ser público. Mientras diga EJEMPLO, la página muestra un aviso en lugar del calendario. Cada fecha clave tiene 'fecha' y, si dura varios días, 'fechaFin' (el último día).",
-  "calendarioId": "fn6v3h04h7f2k30usu01d3rr2s@group.calendar.google.com",
+  "calendarioId": "https://calendar.google.com/calendar/embed?src=refadu.uba%40gmail.com&ctz=America%2FArgentina%2FBuenos_Aires",
   "zonaHoraria": "America/Argentina/Buenos_Aires",
   "fechasClave": []
 }
