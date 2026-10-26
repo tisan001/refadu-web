@@ -6,6 +6,10 @@
 (async () => {
   const { t } = window.ReFADU;
   const $ = (id) => document.getElementById(id);
+  // abierto desde el botón del editor: sin cabecera propia, y avisa al editor cuando guarda
+  const embebido = window.parent !== window && new URLSearchParams(location.search).has("embebido");
+  if (embebido) document.body.classList.add("embebido");
+  const avisarAlEditor = (mensaje) => embebido && window.parent.postMessage(`refadu-importar:${mensaje}`, location.origin);
   const sinTildes = (s) => String(s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
   const clave = (s) => sinTildes(s).replace(/[^a-z0-9]/g, "");
 
@@ -251,8 +255,9 @@
       });
       if (!respuesta.ok) throw new Error(`GitHub no aceptó el cambio (${respuesta.status}). ¿Tenés permiso de escritura en el repositorio?`);
       existentes = final;
-      $("ok").textContent = `Listo: ${modo() === "agregar" ? `se agregaron ${cuantos} grupos` : `quedaron ${final.grupos.length} grupos`}. En uno o dos minutos aparecen en el sitio.`;
+      $("ok").textContent = `Listo: ${modo() === "agregar" ? `se agregaron ${cuantos} grupos` : `quedaron ${final.grupos.length} grupos`}. En uno o dos minutos aparecen en el sitio.${embebido ? " Al volver al editor, ya los vas a ver en Grupos de WhatsApp." : ""}`;
       $("ok").hidden = false;
+      avisarAlEditor("guardado");
       dibujar();
     } catch (e) {
       $("error").textContent = e.message;

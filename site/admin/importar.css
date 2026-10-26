@@ -3,6 +3,13 @@
 .importar {
   padding-block: 2rem 3rem;
 }
+/* adentro del editor: la barra de arriba ya la pone el editor */
+body.embebido > .cabecera {
+  display: none;
+}
+body.embebido .importar {
+  padding-top: 1.25rem;
+}
 .importar .caja {
   --palabra: 7.5;
 }

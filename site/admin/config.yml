@@ -76,7 +76,7 @@ collections:
         label: Grupos de WhatsApp
         file: content/grupos.json
         format: json
-        description: "Los grupos de la página Grupos. Para cargar muchos de una desde un Excel, abrí /admin/importar.html (con la misma sesión)."
+        description: "Los grupos de la página Grupos. Para cargar muchos de una desde un Excel, usá el botón «Importar grupos» de la barra de arriba."
         fields:
           - { name: _ayuda, widget: hidden, default: "Un renglón por grupo. 'tipo' puede ser: carrera, cbc, año o materia. 'carrera' es el id de content/carreras.json (en los de CBC dejalo vacío). En los de CBC poné en 'anio' de qué año es el grupo (por ejemplo 2026). Los links empiezan con https://chat.whatsapp.com/." }
           - name: grupos
